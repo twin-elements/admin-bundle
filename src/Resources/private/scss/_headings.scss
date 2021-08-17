@@ -1,0 +1,55 @@
+h1, .h1 {
+  @include font-size(1.75rem); // 28px
+  line-height: 1.1;
+  color: $body-color;
+  margin-bottom: .5em;
+  font-weight: $font-weight-normal;
+  font-family: $font-family-base;
+}
+
+h2, .h2 {
+  @include font-size(1.5rem); // 24px
+  line-height: 1.1;
+  color: $body-color;
+  margin-bottom: 1em;
+  font-weight: $font-weight-normal;
+  font-family: $font-family-base;
+}
+
+h3, .h3 {
+  @include font-size(1.25rem); // 20px
+  line-height: 1.1;
+  color: $body-color;
+  margin-bottom: 1em;
+  font-weight: $font-weight-normal;
+  font-family: $font-family-base;
+}
+
+h4, .h4 {
+  @include font-size(17px);
+  line-height: 1.3;
+  color: var(--black);
+  margin-bottom: .75em;
+  font-weight: $font-weight-bold;
+  font-family: $font-family-base;
+}
+
+h5, .h5 {
+  @include font-size(15px);
+  line-height: 1.4;
+  color: var(--black);
+  margin-bottom: 1em;
+  font-weight: $font-weight-bold;
+  font-family: $font-family-base;
+  text-transform: uppercase;
+}
+
+h6, .h6 {
+  @include font-size(13px);
+  line-height: 1.5;
+  color: var(--black);
+  margin-bottom: 1em;
+  font-weight: $font-weight-bold;
+  font-family: $font-family-base;
+  text-transform: uppercase;
+}

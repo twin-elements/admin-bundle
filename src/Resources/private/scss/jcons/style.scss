@@ -1,0 +1,538 @@
+@import "variables";
+
+@font-face {
+  font-family: '#{$icomoon-font-family}';
+  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?7bskcr');
+  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?7bskcr#iefix') format('embedded-opentype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?7bskcr') format('truetype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?7bskcr') format('woff'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?7bskcr##{$icomoon-font-family}') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.jcon {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: '#{$icomoon-font-family}' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.jcon-switch-off {
+  &:before {
+    content: $jcon-switch-off; 
+  }
+}
+.jcon-switch-on {
+  &:before {
+    content: $jcon-switch-on; 
+  }
+}
+.jcon-sheet {
+  &:before {
+    content: $jcon-sheet; 
+  }
+}
+.jcon-movement {
+  &:before {
+    content: $jcon-movement; 
+  }
+}
+.jcon-minus {
+  &:before {
+    content: $jcon-minus; 
+  }
+}
+.jcon-trash {
+  &:before {
+    content: $jcon-trash; 
+  }
+}
+.jcon-add {
+  &:before {
+    content: $jcon-add; 
+  }
+}
+.jcon-error {
+  &:before {
+    content: $jcon-error; 
+  }
+}
+.jcon-arrow-down {
+  &:before {
+    content: $jcon-arrow-down; 
+  }
+}
+.jcon-arrow-up {
+  &:before {
+    content: $jcon-arrow-up; 
+  }
+}
+.jcon-arrow-right {
+  &:before {
+    content: $jcon-arrow-right; 
+  }
+}
+.jcon-arrow-left {
+  &:before {
+    content: $jcon-arrow-left; 
+  }
+}
+.jcon-document1 {
+  &:before {
+    content: $jcon-document1; 
+  }
+}
+.jcon-inbox-download {
+  &:before {
+    content: $jcon-inbox-download; 
+  }
+}
+.jcon-folder {
+  &:before {
+    content: $jcon-folder; 
+  }
+}
+.jcon-folder-add {
+  &:before {
+    content: $jcon-folder-add; 
+  }
+}
+.jcon-search {
+  &:before {
+    content: $jcon-search; 
+  }
+}
+.jcon-document-file-png {
+  &:before {
+    content: $jcon-document-file-png; 
+  }
+}
+.jcon-document-file-pdf {
+  &:before {
+    content: $jcon-document-file-pdf; 
+  }
+}
+.jcon-document-file-mp3 {
+  &:before {
+    content: $jcon-document-file-mp3; 
+  }
+}
+.jcon-document-file-mp4 {
+  &:before {
+    content: $jcon-document-file-mp4; 
+  }
+}
+.jcon-document-file-mov {
+  &:before {
+    content: $jcon-document-file-mov; 
+  }
+}
+.jcon-document-file-jpg {
+  &:before {
+    content: $jcon-document-file-jpg; 
+  }
+}
+.jcon-document-file-html {
+  &:before {
+    content: $jcon-document-file-html; 
+  }
+}
+.jcon-document-file-css {
+  &:before {
+    content: $jcon-document-file-css; 
+  }
+}
+.jcon-document-file-bmp {
+  &:before {
+    content: $jcon-document-file-bmp; 
+  }
+}
+.jcon-document-file-tiff {
+  &:before {
+    content: $jcon-document-file-tiff; 
+  }
+}
+.jcon-document-file-doc {
+  &:before {
+    content: $jcon-document-file-doc; 
+  }
+}
+.jcon-document-file-odt {
+  &:before {
+    content: $jcon-document-file-odt; 
+  }
+}
+.jcon-document-file-xls {
+  &:before {
+    content: $jcon-document-file-xls; 
+  }
+}
+.jcon-document-file-docx {
+  &:before {
+    content: $jcon-document-file-docx; 
+  }
+}
+.jcon-document-file-ppt {
+  &:before {
+    content: $jcon-document-file-ppt; 
+  }
+}
+.jcon-document-file-xml {
+  &:before {
+    content: $jcon-document-file-xml; 
+  }
+}
+.jcon-document-file-yml {
+  &:before {
+    content: $jcon-document-file-yml; 
+  }
+}
+.jcon-document-file-exe {
+  &:before {
+    content: $jcon-document-file-exe; 
+  }
+}
+.jcon-document-file-avi {
+  &:before {
+    content: $jcon-document-file-avi; 
+  }
+}
+.jcon-document-file-odp {
+  &:before {
+    content: $jcon-document-file-odp; 
+  }
+}
+.jcon-document-file-dotx {
+  &:before {
+    content: $jcon-document-file-dotx; 
+  }
+}
+.jcon-document-file-xlsx {
+  &:before {
+    content: $jcon-document-file-xlsx; 
+  }
+}
+.jcon-document-file-ods {
+  &:before {
+    content: $jcon-document-file-ods; 
+  }
+}
+.jcon-document-file-pps {
+  &:before {
+    content: $jcon-document-file-pps; 
+  }
+}
+.jcon-document-file-dot {
+  &:before {
+    content: $jcon-document-file-dot; 
+  }
+}
+.jcon-document-file-txt {
+  &:before {
+    content: $jcon-document-file-txt; 
+  }
+}
+.jcon-document-file-mpg {
+  &:before {
+    content: $jcon-document-file-mpg; 
+  }
+}
+.jcon-document-file-wav {
+  &:before {
+    content: $jcon-document-file-wav; 
+  }
+}
+.jcon-document-file-zip {
+  &:before {
+    content: $jcon-document-file-zip; 
+  }
+}
+.jcon-document-file-rar {
+  &:before {
+    content: $jcon-document-file-rar; 
+  }
+}
+.jcon-document-file-gif {
+  &:before {
+    content: $jcon-document-file-gif; 
+  }
+}
+.jcon-document {
+  &:before {
+    content: $jcon-document; 
+  }
+}
+.jcon-newspaper {
+  &:before {
+    content: $jcon-newspaper; 
+  }
+}
+.jcon-calendar {
+  &:before {
+    content: $jcon-calendar; 
+  }
+}
+.jcon-pictures {
+  &:before {
+    content: $jcon-pictures; 
+  }
+}
+.jcon-video {
+  &:before {
+    content: $jcon-video; 
+  }
+}
+.jcon-camera {
+  &:before {
+    content: $jcon-camera; 
+  }
+}
+.jcon-bargraph {
+  &:before {
+    content: $jcon-bargraph; 
+  }
+}
+.jcon-expand {
+  &:before {
+    content: $jcon-expand; 
+  }
+}
+.jcon-focus {
+  &:before {
+    content: $jcon-focus; 
+  }
+}
+.jcon-hourglass {
+  &:before {
+    content: $jcon-hourglass; 
+  }
+}
+.jcon-megaphone {
+  &:before {
+    content: $jcon-megaphone; 
+  }
+}
+.jcon-map {
+  &:before {
+    content: $jcon-map; 
+  }
+}
+.jcon-basket {
+  &:before {
+    content: $jcon-basket; 
+  }
+}
+.jcon-envelope {
+  &:before {
+    content: $jcon-envelope; 
+  }
+}
+.jcon-gears {
+  &:before {
+    content: $jcon-gears; 
+  }
+}
+.jcon-pricetags {
+  &:before {
+    content: $jcon-pricetags; 
+  }
+}
+.jcon-lightbulb {
+  &:before {
+    content: $jcon-lightbulb; 
+  }
+}
+.jcon-layers {
+  &:before {
+    content: $jcon-layers; 
+  }
+}
+.jcon-tools-2 {
+  &:before {
+    content: $jcon-tools-2; 
+  }
+}
+.jcon-magnifying-glass {
+  &:before {
+    content: $jcon-magnifying-glass; 
+  }
+}
+.jcon-caution {
+  &:before {
+    content: $jcon-caution; 
+  }
+}
+.jcon-profile-male {
+  &:before {
+    content: $jcon-profile-male; 
+  }
+}
+.jcon-profile-female {
+  &:before {
+    content: $jcon-profile-female; 
+  }
+}
+.jcon-genius {
+  &:before {
+    content: $jcon-genius; 
+  }
+}
+.jcon-map-pin {
+  &:before {
+    content: $jcon-map-pin; 
+  }
+}
+.jcon-chat {
+  &:before {
+    content: $jcon-chat; 
+  }
+}
+.jcon-piechart {
+  &:before {
+    content: $jcon-piechart; 
+  }
+}
+.jcon-speedometer {
+  &:before {
+    content: $jcon-speedometer; 
+  }
+}
+.jcon-clock {
+  &:before {
+    content: $jcon-clock; 
+  }
+}
+.jcon-quote {
+  &:before {
+    content: $jcon-quote; 
+  }
+}
+.jcon-alarmclock {
+  &:before {
+    content: $jcon-alarmclock; 
+  }
+}
+.jcon-refresh {
+  &:before {
+    content: $jcon-refresh; 
+  }
+}
+.jcon-happy {
+  &:before {
+    content: $jcon-happy; 
+  }
+}
+.jcon-sad {
+  &:before {
+    content: $jcon-sad; 
+  }
+}
+.jcon-plus {
+  &:before {
+    content: $jcon-plus; 
+  }
+}
+.jcon-jellinek .path1 {
+  &:before {
+    content: $jcon-jellinek-path1;  
+    color: rgb(20, 80, 116);
+  }
+}
+.jcon-jellinek .path2 {
+  &:before {
+    content: $jcon-jellinek-path2;  
+    margin-left: -4.4892578125em;  
+    color: rgb(20, 80, 116);
+  }
+}
+.jcon-jellinek .path3 {
+  &:before {
+    content: $jcon-jellinek-path3;  
+    margin-left: -4.4892578125em;  
+    color: rgb(188, 32, 39);
+  }
+}
+.jcon-jellinek .path4 {
+  &:before {
+    content: $jcon-jellinek-path4;  
+    margin-left: -4.4892578125em;  
+    color: rgb(188, 32, 39);
+  }
+}
+.jcon-jellinek .path5 {
+  &:before {
+    content: $jcon-jellinek-path5;  
+    margin-left: -4.4892578125em;  
+    color: rgb(63, 65, 68);
+  }
+}
+.jcon-jellinek .path6 {
+  &:before {
+    content: $jcon-jellinek-path6;  
+    margin-left: -4.4892578125em;  
+    color: rgb(63, 65, 68);
+  }
+}
+.jcon-jellinek .path7 {
+  &:before {
+    content: $jcon-jellinek-path7;  
+    margin-left: -4.4892578125em;  
+    color: rgb(63, 65, 68);
+  }
+}
+.jcon-jellinek .path8 {
+  &:before {
+    content: $jcon-jellinek-path8;  
+    margin-left: -4.4892578125em;  
+    color: rgb(63, 65, 68);
+  }
+}
+.jcon-jellinek .path9 {
+  &:before {
+    content: $jcon-jellinek-path9;  
+    margin-left: -4.4892578125em;  
+    color: rgb(63, 65, 68);
+  }
+}
+.jcon-jellinek .path10 {
+  &:before {
+    content: $jcon-jellinek-path10;  
+    margin-left: -4.4892578125em;  
+    color: rgb(63, 65, 68);
+  }
+}
+.jcon-close {
+  &:before {
+    content: $jcon-close; 
+  }
+}
+.jcon-down {
+  &:before {
+    content: $jcon-down; 
+  }
+}
+.jcon-up {
+  &:before {
+    content: $jcon-up; 
+  }
+}
+.jcon-right {
+  &:before {
+    content: $jcon-right; 
+  }
+}
+.jcon-left {
+  &:before {
+    content: $jcon-left; 
+  }
+}
+

@@ -1,0 +1,25 @@
+.breadcrumb {
+  background-color: transparent;
+  padding: 0;
+  li,
+  a {
+    font-size: 13px;
+    font-weight: 400;
+  }
+  > li + li:before {
+    color: $secondary;
+  }
+  > li {
+    @include text-truncate;
+    max-width: 300px;
+    > span {
+      color: rgba(103, 92, 92, 0.83);
+      text-decoration: underline;
+      &.separator {
+        margin-left: 5px;
+        margin-right: 5px;
+        text-decoration: none;
+      }
+    }
+  }
+}

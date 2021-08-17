@@ -1,0 +1,62 @@
+$icon-font-path: '../../../node_modules/bootstrap-sass/assets/fonts/bootstrap/';
+
+$screen-lg: 1367px;
+
+$grid-breakpoints: (
+        xs: 0,
+        sm: 768px,
+        md: 992px,
+        lg: 1200px,
+        xl: 1560px
+);
+
+$spacer: 1rem !default;
+$spacers: () !default;
+
+$spacers: map-merge(
+                (
+                        0: 0,
+                        1: 3px,
+                        2: 5px,
+                        3: 8px,
+                        4: 10px,
+                        5: 15px,
+                        6: 20px,
+                        7: 25px,
+                        8: 30px,
+                        9: 35px,
+                        10: 40px,
+                        11: 45px,
+                        12: 50px,
+                        13: 55px,
+                        14: 60px,
+                        15: 65px,
+                        16: 80px,
+                        17: 90px
+                ),
+                $spacers
+);
+
+$input-border-radius: 0px;
+$btn-border-radius: 0px;
+$btn-border-radius-sm: $btn-border-radius;
+$btn-font-size: .95rem;
+$btn-font-weight: 300;
+
+$display4-size: 2.6rem;
+
+$label-default-bg: $gray-dark;
+
+$input-placeholder-color: lighten($gray, 5%);
+
+$card-border-radius: 0;
+$card-inner-border-radius: 0;
+$card-cap-bg: $gray-lighter;
+
+$modal-lg: 1200px;
+$modal-md: 600px;
+$modal-content-border-radius: 0;
+
+$tooltip-font-size: .75rem;
+$tooltip-padding-x:0.3rem;
+$tooltip-padding-y: 0.05rem;

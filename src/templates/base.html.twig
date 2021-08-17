@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:200&display=swap&subset=cyrillic-ext,latin-ext" rel="stylesheet">
+
+    {{ encore_entry_link_tags('admin-app', 'admin', 'admin') }}
+    {% block stylesheets %}{% endblock %}
+    {% block additional_stylesheets %}{% endblock %}
+    {% block head_js %}{% endblock %}
+    <script>
+        var TINYMCE_CONTENT_CSS = '{{ encore_entry_css_files('tinymce', 'admin')[0] }}';
+        var FILEMANAGER_URL = '{{ path('file_manager', {module:'tiny', conf:'tiny'}) }}';
+    </script>
+</head>
+<body>
+<noscript>
+    <div class="alert alert-danger position-fixed w-100" style="top:0;z-index: 9999">
+        Do pełnej funkcjonalności strony potrzebujesz włączonej obsługi Javascript.<br>
+        Tu znajdziesz <a href="https://www.enable-javascript.com/pl/">instrukcje, które pozwolą Ci włączyć skrypty w Twojej przeglądarce</a>.
+    </div>
+</noscript>
+<div id="loader-container">
+    <div id="loader"></div>
+</div>
+{% block body %}{% endblock %}
+{{ encore_entry_script_tags('admin-app', 'admin', 'admin') }}
+{{ encore_entry_script_tags('tinymce', 'admin', 'admin') }}
+{% block javascripts %}{% endblock %}
+{% block additional_javascripts %}{% endblock %}
+</body>
+</html>

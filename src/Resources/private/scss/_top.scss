@@ -1,0 +1,16 @@
+#top {
+  height: 60px;
+  border-bottom: 2px solid $border-color;
+  background-color: $white;
+  #logo {
+    width: 169px;
+    img {
+      max-width: 100%;
+    }
+  }
+  #top-right-sidebar {
+    a {
+      line-height: 54px;
+    }
+  }
+}

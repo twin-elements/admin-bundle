@@ -1,0 +1,22 @@
+{
+    "name": "twin-elements/admin-bundle",
+    "description": "Admin bundle for CMS",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Władysław Dudko",
+            "email": "wladyslaw@jellinek.pl"
+        }
+    ],
+    "require": {
+        "php": "^7.1.3",
+        "symfony/framework-bundle": "^4.4",
+        "twin-elements/form-extensions": "^0.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "TwinElements\\AdminBundle\\": "src/"
+        }
+    }
+}

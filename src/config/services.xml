@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services
+        https://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <defaults autowire="true" autoconfigure="true"/>
+
+        <prototype namespace="TwinElements\AdminBundle\" resource="../../src/*"
+                   exclude="../../src/{DependencyInjection,Entity,Tests}"/>
+
+        <prototype namespace="TwinElements\AdminBundle\Controller\" resource="../../src/Controller/*">
+            <tag name="controller.service_arguments"/>
+            <bind key="$locales">%app_locales%</bind>
+<!--            <bind key="$adminLocale">%admin_locale%</bind>-->
+        </prototype>
+
+        <prototype namespace="TwinElements\AdminBundle\Form\" resource="../../src/Form/*">
+            <tag name="form.type"/>
+        </prototype>
+
+        <service id="TwinElements\AdminBundle\Service\AdminTranslator">
+            <bind key="$adminLocale">%admin_locale%</bind>
+        </service>
+
+        <service id="TwinElements\AdminBundle\Role\AdminUserRole">
+            <tag name="twin_elements.role" priority="99"/>
+        </service>
+
+        <service id="TwinElements\AdminBundle\Role\RoleCollection">
+            <argument type="tagged" tag="twin_elements.role"/>
+        </service>
+
+        <service id="TwinElements\AdminBundle\Menu\AdminMenu">
+            <tag name="twin_elements.admin_menu"/>
+        </service>
+
+        <service id="TwinElements\AdminBundle\Menu\AdminMenuCollector">
+            <argument type="tagged" tag="twin_elements.admin_menu" />
+        </service>
+
+        <service id="TwinElements\AdminBundle\Menu\Builder" autowire="true">
+            <tag name="knp_menu.menu_builder" method="mainMenu" alias="cms_main" />
+            <bind key="$adminLocale">%admin_locale%</bind>
+        </service>
+
+        <service id="TwinElements\AdminBundle\Helper\Breadcrumbs" autowire="true">
+            <bind key="$adminLocale">%admin_locale%</bind>
+        </service>
+    </services>
+</container>

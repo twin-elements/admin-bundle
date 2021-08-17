@@ -1,0 +1,346 @@
+{# buttons #}
+{% block add_button %}
+    {% if is_granted('ROLE_ADMIN') and app.request.locale == app.request.defaultLocale and add_button_link is defined %}
+        <a href="{{ add_button_link }}"
+           class="btn btn-primary rounded-pill">{% if name is defined %}{{ name }}{% else %}{{ "cms.add"|trans({},null,admin_locale) }}{% endif %}</a>
+    {% endif %}
+{% endblock %}
+
+
+{% block primary_link %}
+    <a href="{{ link }}"
+       class="btn btn-primary rounded-pill">{{ name }}</a>
+{% endblock %}
+
+{% block add_action_link %}
+    {% set name = "cms.add"|trans({},null,admin_locale) %}
+    {{ block('primary_link') }}
+{% endblock %}
+
+{% block back_button %}
+    <a href="{{ back_button_link }}" class="btn btn-primary">
+        {%- if back_button_name is defined and back_button_name -%}
+            {{ back_button_name }}
+        {%- else -%}
+            {{ "cms.back"|trans({},null,admin_locale) }}
+        {%- endif -%}
+    </a>
+{% endblock %}
+
+
+{# list #}
+
+{% block list_ul_begin %}
+<ul class="cms-list sortable">
+    {% endblock %}
+
+    {% block list_ul_end %}
+</ul>
+{% endblock %}
+
+{% block list_li_header_begin %}
+<li class="header ">
+    <div class="level_content row align-items-center">
+        {% endblock %}
+
+        {% block list_li_header_end %}
+    </div>
+</li>
+{% endblock %}
+
+{% block list_li_begin %}
+<li {% if id is defined %}id="{{ id }}"{% endif %} class="sortable-item">
+    <div class="level_content row align-items-center">
+        {% endblock %}
+
+        {% block list_li_end %}
+    </div>
+</li>
+{% endblock %}
+
+{% block changes_details %}
+    <div class="cms-section">
+        <p class="d-flex flex-column">
+            {% if entity.createdAt %}
+                <span class="mb-2">{{ "cms.date_added"|translate_admin }}: <b>{{ entity.createdAt|date(datetime_type) }}</b></span>
+            {% endif %}
+            {% if entity.createdBy %}
+                <span class="mb-2">{{ "cms.who_added"|translate_admin }}: <b
+                            class="text-capitalize">{{ entity.createdBy }}</b></span>
+            {% endif %}
+            {% if entity.updatedAt %}
+                <span class="mb-2">{{ "cms.date_modification"|translate_admin }}: <b>{{ entity.updatedAt|date(datetime_type) }}</b></span>
+            {% endif %}
+            {% if entity.updatedBy %}
+                <span>{{ "cms.who_modified"|translate_admin }}: <b class="text-capitalize">{{ entity.updatedBy }}</b></span>
+            {% endif %}
+        </p>
+    </div>
+{% endblock %}
+
+{% block changes %}
+    {% deprecated 'use change_details block and blamble and timestabable traits' %}
+    {% if changes is defined %}
+        <div class="cms-section">
+            <p class="d-flex flex-column">
+                {% if changes.createdAt is defined %}
+                    <span>{{ "cms.date_added"|trans({},null,admin_locale) }}: <b>{{ changes.createdAt|date(datetime_type) }}</b></span>
+                {% endif %}
+                {% if changes.whoCreated is defined %}
+                    <span>{{ "cms.who_added"|trans({},null,admin_locale) }}: <b class="text-capitalize">{{ changes.whoCreated }}</b></span>
+                {% endif %}
+                {% if changes.updatedAt is defined %}
+                    <span>{{ "cms.date_modification"|trans({},null,admin_locale) }}: <b>{{ changes.updatedAt|date(datetime_type) }}</b></span>
+                {% endif %}
+                {% if changes.whoUpdated is defined %}
+                    <span>{{ "cms.who_modified"|trans({},null,admin_locale) }}: <b class="text-capitalize">{{ changes.whoUpdated }}</b></span>
+                {% endif %}
+            </p>
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block alerts %}
+    <div id="alerts-container">
+        {% for flashMessage in app.session.flashbag.get('success') %}
+            <div class="alert alert-success">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                {{ flashMessage }}
+            </div>
+        {% endfor %}
+        {% for flashMessage in app.session.flashbag.get('error') %}
+            <div class="alert alert-danger">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                {{ flashMessage }}
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block breadcrumbs %}
+    <div class="row">
+        <div class="col-md-12">
+            {{ wo_render_breadcrumbs() }}
+        </div>
+    </div>
+{% endblock %}
+
+{% block delete_form %}
+    {% if is_granted('ROLE_ADMIN') and delete_form is defined %}
+        <div class="cms-section">
+            <h5>{{ "cms.remove_element_action"|trans({}, null, admin_locale) }}</h5>
+            <p>{{ "cms.remove_element_action_alert"|trans({}, null, admin_locale)|raw }}</p><br>
+            {{ form_start(delete_form) }}
+            <button type="submit" class="btn btn-dark">{{ "cms.remove"|trans({}, null, admin_locale) }}</button>
+            {{ form_end(delete_form) }}
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block id_header %}
+    <div class="text-center list-id-col px-3">
+        ID
+    </div>
+{% endblock %}
+
+{% block id %}
+    <div class="text-center list-id-col px-3">
+        {% if id is defined %}
+            {{ id }}
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block move_header %}
+    <div class="col-md-1 text-center"></div>
+{% endblock %}
+
+{% block move %}
+    <div class="col-md-1 text-center">
+        <span class="move ui-sortable-handle"><i class="jcon jcon-movement"></i></span>
+    </div>
+{% endblock %}
+
+{% block circle_header %}
+    <div class="col-md-1 col-lg-1 text-center">
+        {{ circle_header_name|default("cms.status"|trans({}, null, admin_locale)) }}
+    </div>
+{% endblock %}
+
+{% block circle %}
+    <div class="col-md-1 col-lg-1 text-center">
+        {% if circle_active is defined %}
+            <div class="circle circle-color-{% if circle_active %}1{% else %}0{% endif %}"></div>
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block changes_box_in_list %}
+    <div class="col-md-3 col-xl-2">
+        <div {% if updatedAt %}class="more-dates"{% endif %} >
+            {% if updatedAt %}
+                <span class="small">{{ createdAt|date(datetime_type) }}
+                    {% if createdBy %}
+                        <span class="text-primary">({{ createdBy }})</span>
+                    {% endif %}
+                </span>
+                <br>
+                <span class="small">{{ updatedAt|date(datetime_type) }}
+                    {% if updatedBy %}<span class="text-primary">({{ updatedBy }})</span>{% endif %}
+                </span>
+            {% else %}
+                {{ createdAt|date(datetime_type) }}
+                {% if createdBy %}
+                    <span class="text-primary small">({{ createdBy }})</span>
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block list_changes_header %}
+    <div class="col-md-3 col-xl-2">
+        {{ "cms.added_at_modify_at"|trans({},null,admin_locale) }}
+    </div>
+{% endblock %}
+
+{% block list_changes %}
+    <div class="col-md-3 col-xl-2">
+        {% if changes is defined and changes is not null %}
+            <div {% if changes.updatedAt %}class="more-dates"{% endif %} >
+                {% if changes.updatedAt %}
+                    <span class="small">{{ changes.createdAt|date(datetime_type) }} <span
+                                class="text-primary">({{ changes.whoCreated }})</span></span>
+                    <br>
+                    <span class="small">{{ changes.updatedAt|date(datetime_type) }} <span
+                                class="text-primary">({{ changes.whoUpdated }})</span></span>
+                {% else %}
+                    {{ changes.createdAt|date(datetime_type) }} <span class="text-primary small">({{ changes.whoCreated }}
+                    )</span>
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block no_elements %}
+    <div class="pt-5 pb-5">
+        <div class="card">
+            <div class="card-body">
+                {{ 'cms.no_results'|trans({},null,admin_locale) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block single_image_preview %}
+    {% import 'macro/print_crop.html.twig' as crop %}
+    {% if single_image is defined and single_image is not null %}
+        {% set file_path = crop.printCrop(single_image) %}
+        {{ block('single_image_preview_template') }}
+    {% endif %}
+{% endblock %}
+
+{% block single_image_preview_template %}
+    {% if file_path is defined and file_path %}
+        <div class="cms-section">
+            {% if section_title %}
+                <h5>{{ section_title }}</h5>
+            {% endif %}
+            <div class="row">
+                <div class="col-md-12">
+                    <div style="padding: 20px;border:1px solid #cec7c7;">
+                        <img src="{{ asset(file_path) }}"
+                             style="max-width: 100%;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block single_file_preview %}
+    {% if file_path is defined and file_path %}
+        {% if section_title %}
+            <h5>{{ section_title }}</h5>
+        {% endif %}
+        <div class="row">
+            <div class="col-md-12">
+                <div class="file-info text-truncate mb-3"
+                     data-file-ext="{{ file_path | file_ext }}">{{ file_path | file_name }}</div>
+                <div class="btn-group d-flex justify-content-start">
+                    <a href="{{ file_path }}" download class="btn btn-success flex-fill"><i
+                                class="jcon jcon-inbox-download lead"></i> Pobierz</a>
+                    <a href="{{ file_path }}" target="_blank" class="btn btn-primary flex-fill"><i
+                                class="jcon jcon-folder-add lead"></i> Otwórz</a>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block delete_image_form %}
+    {% if delete_image_form is defined and image_path is defined %}
+        <div class="cms-section">
+            <div class="row">
+                <div class="col-md-12">
+                    <div style="padding: 20px;border:1px solid #cec7c7;">
+                        <img src="{{ asset(image_path) }}"
+                             style="max-width: 100%;">
+                    </div>
+                </div>
+            </div>
+            {% if is_granted('ROLE_ADMIN') %}
+                <br>
+                {{ form_start(delete_image_form, {'attr': {'onclick': 'return confirm("Czy jesteś pewien?")'} }) }}
+                <button type="submit" class="btn btn-default">{{ btn_text | default('Skasuj okładkę') }}</button>
+                {{ form_end(delete_image_form) }}
+            {% endif %}
+        </div>
+    {% endif %}
+{% endblock %}
+
+
+{# attr for divs #}
+{% block div_attributes %}
+    {%- for attrname, attrvalue in div_attributes -%}
+        {% if not loop.first %}
+            {{- " " -}}
+        {% endif %}
+        {{- attrname }}="{{ attrvalue }}"
+    {%- endfor -%}
+{% endblock %}
+
+{# acordion BEGIN #}
+
+{% block accordion_card %}
+    <div class="card collection-child-actions-container">
+        {{ block('accordion_card_header') }}
+        {{ block('accordion_card_content') }}
+    </div>
+{% endblock %}
+
+{% block accordion_card_header %}
+    {% set div_attributes = accordion_header_attr | default({'class': 'card-header', 'id': 'accordion-heading'}) %}
+    {% set accordion_content_id = accordion_content_id | default('collapse-id') %}
+    <div {{ block('div_attributes') }}>
+        <h5 class="mb-0">
+            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#{{ accordion_content_id }}"
+                    aria-expanded="{{ accordion_card_active ? 'true' : 'false' }}"
+                    aria-controls="{{ accordion_content_id }}">
+                {{ accordion_card_title }}
+            </button>
+        </h5>
+    </div>
+{% endblock %}
+
+{% block accordion_card_content %}
+    <div id="{{ accordion_content_id }}" class="collapse {{ accordion_card_active ? 'show' : null }}"
+         aria-labelledby="{{ accordion_header_attr.id }}" data-parent="#{{ accordion_id }}">
+        <div class="card-body">
+            {{ accordion_content_body | raw }}
+        </div>
+    </div>
+{% endblock %}
+
+{# acordion END #}

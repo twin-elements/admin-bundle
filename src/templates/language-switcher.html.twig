@@ -1,0 +1,11 @@
+{% if all_languages|length > 1 %}
+    <form action="{{ path('switch_language') }}" onchange="this.submit()" method="post"
+          class="form-inline" style="display: inline-block;margin-left:20px;">
+        <select name="language" class="input text-uppercase ">
+            {% for language in all_languages %}
+                <option value="{{ language }}"
+                        {% if language == current %}selected="selected"{% endif %}>{{ language }}</option>
+            {% endfor %}
+        </select>
+    </form>
+{% endif %}

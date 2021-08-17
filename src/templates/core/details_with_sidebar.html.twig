@@ -1,0 +1,10 @@
+{% extends '@TwinElementsAdmin/core/details.html.twig' %}
+
+{% block right_sidebar_container %}
+    <div class="col-md-3">
+        <div id="right-sidebar">
+            <h5>{{ "cms.additional_data"|trans({},null,admin_locale) }}</h5>
+            {% block right_sidebar %}{% endblock %}
+        </div>
+    </div>
+{% endblock %}

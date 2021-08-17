@@ -1,0 +1,7 @@
+{% extends '@TwinElementsAdmin/core/details.html.twig' %}
+{% set back_button_link = path('user_index') %}
+{% block title %}{{ 'admin.user.add_new_user'|translate_admin }}{% endblock %}
+
+{% block buttons %}
+   {{ block('back_button') }}
+{% endblock %}

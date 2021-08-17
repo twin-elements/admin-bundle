@@ -1,0 +1,29 @@
+admin:
+  no_translation: Brak tłumaczenia
+  password: Hasło
+  repeat_password: Powtórz hasło
+  not_similar_error: Hasła muszą być takie same
+  email_address: Adres e-mail
+  email: E-mail
+  roles: Uprawnienia
+  user:
+    add_new_user: Nowy użytkownik
+    username: Nazwa użytkownika
+    users: Użytkownicy
+    user_has_been_added: Użytkownik został dodany
+    user_has_been_deleted: Użytkownik został skasowany
+  dictionary:
+    update_data: Aktualizuj dane
+    key: Klucz
+    translation: Tłumaczenie
+    translate: Tłumacz
+    no_translation: Brak tłumaczenia
+    no_available_translations: Brak dostępnych tłumaczeń
+
+actions:
+  edit: Edycja
+  show: Pokaż
+
+role:
+  role_admin: Administrator
+  role_user: Podstawowy dostęp

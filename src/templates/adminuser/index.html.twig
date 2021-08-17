@@ -1,0 +1,48 @@
+{% extends '@TwinElementsAdmin/core/list.html.twig' %}
+
+{% set add_button_link = path('user_new') %}
+
+{% block title %}{{ 'cms.users'|trans }}{% endblock %}
+{% block buttons %}
+    {{ block('add_button') }}
+{% endblock %}
+
+{% block list %}
+    {{ block('list_ul_begin') }}
+        {{ block('list_li_header_begin') }}
+                {{ block('id_header') }}
+                <div class="col-md-4">Login</div>
+                <div class="col-md-4">E-mail</div>
+                <div class="col-md-2">Data utworzenia</div>
+                {{ block('circle_header') }}
+        {{ block('list_li_header_end') }}
+        {% for user in adminUsers %}
+            {% set id = user.id %}
+            {% set circle_active = user.enabled %}
+
+            {{ block('list_li_begin') }}
+                {{ block('id') }}
+                <div class="col-md-4">
+                    <div class="title">
+                        {{ user.username }}
+                        <br>
+                        <div class="hidden-bar">
+                            {% if is_granted('ROLE_ADMIN') %}
+                                <a href="{{ path('user_edit', { 'id': user.id }) }}">Edytuj</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    {{ user.email }}
+                </div>
+                <div class="col-md-2">
+                    {% if user.createdAt %}
+                        {{ user.createdAt|date('Y-m-d H:i:s') }}
+                    {% endif %}
+                </div>
+                {{ block('circle') }}
+            {{ block('list_li_end') }}
+        {% endfor %}
+    {{ block('list_ul_end') }}
+{% endblock %}

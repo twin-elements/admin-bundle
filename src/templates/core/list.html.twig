@@ -1,0 +1,17 @@
+{% extends '@TwinElementsAdmin/index.html.twig' %}
+{% use '@TwinElementsAdmin/block/blocks.html.twig' %}
+{% block containter %}
+    <div class="d-flex justify-content-between align-items-center">
+        <h1>{% block title %}{% endblock %}</h1>
+        <div class="navigation-buttons text-right flex-grow-1">
+            {% block buttons %}{% endblock %}
+        </div>
+    </div>
+    {{ block('breadcrumbs') }}
+    {{ block('alerts') }}
+    {% block top_sidebar %}{% endblock %}
+    <div id="white-content" class="container-fluid">
+        {% block list %}{% endblock %}
+    </div>
+    {% block bottom_sidebar %}{% endblock %}
+{% endblock %}

@@ -1,0 +1,61 @@
+#cms-login-form {
+  width: 580px;
+  height: 380px;
+  background: #f8f9fb;
+  padding: 42px;
+  text-align: center;
+  label {
+    display: block;
+    float: left;
+    width: 16%;
+    font-weight: 300;
+    line-height: 35px;
+  }
+  input {
+    display: block;
+    float: left;
+    width: 84%;
+    border: 0;
+    border-bottom: 1px solid #d7d7d7;
+    background-color: transparent;
+    height: 36px;
+    outline: none;
+    border-radius: 0px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  input:-webkit-autofill {
+    -webkit-box-shadow: inset 0 0 0 50px #f8f9fb !important;
+    -webkit-text-fill-color: #3f4144 !important;
+    color: #3f4144 !important;
+  }
+  img {
+    margin-bottom: 50px;
+  }
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  button {
+    padding: 11px 16px;
+    margin-top: 30px;
+    position: relative;
+    padding-right: 35px;
+  }
+}
+#cms-login-form button:after, #cms-login-form button:before {
+  content: '';
+  width: 10px;
+  height: 2px;
+  background: #fff;
+  position: absolute;
+  right: 10px;
+}
+#cms-login-form button:after {
+  transform: rotate(45deg);
+  top: 18px;
+}
+#cms-login-form button:before {
+  transform: rotate(-45deg);
+  top: 24px;
+}

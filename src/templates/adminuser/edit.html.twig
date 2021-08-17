@@ -1,0 +1,13 @@
+{% extends '@CoreAdmin/Default/edit_base.html.twig' %}
+
+{% set back_button_link = path('user_index') %}
+
+{% block title %}{{ adminUser.username }}{% endblock %}
+
+{% block buttons %}
+    {{ block('back_button') }}
+{% endblock %}
+
+{% block right_sidebar %}
+    {{ block('delete_form') }}
+{% endblock %}

@@ -1,0 +1,207 @@
+@font-face {
+  font-family: 'Jcons';
+  src:  url('fonts/Jcons.eot?ahyz9x');
+  src:  url('fonts/Jcons.eot?ahyz9x#iefix') format('embedded-opentype'),
+    url('fonts/Jcons.ttf?ahyz9x') format('truetype'),
+    url('fonts/Jcons.woff?ahyz9x') format('woff'),
+    url('fonts/Jcons.svg?ahyz9x#Jcons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.jcon {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'Jcons' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.jcon-document:before {
+  content: "\e005";
+}
+.jcon-newspaper:before {
+  content: "\e009";
+}
+.jcon-calendar:before {
+  content: "\e00d";
+}
+.jcon-pictures:before {
+  content: "\e010";
+}
+.jcon-video:before {
+  content: "\e011";
+}
+.jcon-camera:before {
+  content: "\e012";
+}
+.jcon-bargraph:before {
+  content: "\e018";
+}
+.jcon-expand:before {
+  content: "\e01a";
+}
+.jcon-focus:before {
+  content: "\e01b";
+}
+.jcon-hourglass:before {
+  content: "\e01f";
+}
+.jcon-megaphone:before {
+  content: "\e021";
+}
+.jcon-map:before {
+  content: "\e025";
+}
+.jcon-basket:before {
+  content: "\e027";
+}
+.jcon-envelope:before {
+  content: "\e028";
+}
+.jcon-gears:before {
+  content: "\e02b";
+}
+.jcon-pricetags:before {
+  content: "\e02f";
+}
+.jcon-lightbulb:before {
+  content: "\e030";
+}
+.jcon-layers:before {
+  content: "\e031";
+}
+.jcon-tools-2:before {
+  content: "\e034";
+}
+.jcon-magnifying-glass:before {
+  content: "\e037";
+}
+.jcon-caution:before {
+  content: "\e03d";
+}
+.jcon-profile-male:before {
+  content: "\e040";
+}
+.jcon-profile-female:before {
+  content: "\e041";
+}
+.jcon-genius:before {
+  content: "\e046";
+}
+.jcon-map-pin:before {
+  content: "\e047";
+}
+.jcon-chat:before {
+  content: "\e049";
+}
+.jcon-piechart:before {
+  content: "\e050";
+}
+.jcon-speedometer:before {
+  content: "\e051";
+}
+.jcon-clock:before {
+  content: "\e055";
+}
+.jcon-quote:before {
+  content: "\e057";
+}
+.jcon-alarmclock:before {
+  content: "\e059";
+}
+.jcon-refresh:before {
+  content: "\e05a";
+}
+.jcon-happy:before {
+  content: "\e05b";
+}
+.jcon-sad:before {
+  content: "\e05c";
+}
+.jcon-plus:before {
+  content: "\e922";
+}
+.jcon-jellinek .path1:before {
+  content: "\e914";
+  color: rgb(20, 80, 116);
+}
+.jcon-jellinek .path2:before {
+  content: "\e915";
+  margin-left: -4.4892578125em;
+  color: rgb(20, 80, 116);
+}
+.jcon-jellinek .path3:before {
+  content: "\e916";
+  margin-left: -4.4892578125em;
+  color: rgb(188, 32, 39);
+}
+.jcon-jellinek .path4:before {
+  content: "\e917";
+  margin-left: -4.4892578125em;
+  color: rgb(188, 32, 39);
+}
+.jcon-jellinek .path5:before {
+  content: "\e918";
+  margin-left: -4.4892578125em;
+  color: rgb(63, 65, 68);
+}
+.jcon-jellinek .path6:before {
+  content: "\e919";
+  margin-left: -4.4892578125em;
+  color: rgb(63, 65, 68);
+}
+.jcon-jellinek .path7:before {
+  content: "\e91a";
+  margin-left: -4.4892578125em;
+  color: rgb(63, 65, 68);
+}
+.jcon-jellinek .path8:before {
+  content: "\e91b";
+  margin-left: -4.4892578125em;
+  color: rgb(63, 65, 68);
+}
+.jcon-jellinek .path9:before {
+  content: "\e91c";
+  margin-left: -4.4892578125em;
+  color: rgb(63, 65, 68);
+}
+.jcon-jellinek .path10:before {
+  content: "\e91d";
+  margin-left: -4.4892578125em;
+  color: rgb(63, 65, 68);
+}
+.jcon-close:before {
+  content: "\e900";
+}
+.jcon-down:before {
+  content: "\e901";
+}
+.jcon-up:before {
+  content: "\e902";
+}
+.jcon-right:before {
+  content: "\e903";
+}
+.jcon-left:before {
+  content: "\e904";
+}
+.jcon-arrow-down:before {
+  content: "\e90f";
+}
+.jcon-arrow-up:before {
+  content: "\e910";
+}
+.jcon-arrow-right:before {
+  content: "\e911";
+}
+.jcon-arrow-left:before {
+  content: "\e912";
+}

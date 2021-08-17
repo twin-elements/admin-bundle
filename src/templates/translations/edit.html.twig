@@ -1,0 +1,9 @@
+{% extends '@TwinElementsAdmin/core/details.html.twig' %}
+{% block title %}{{ key }}{% endblock %}
+
+{% block buttons %}
+    <div>
+        {% set back_button_link = path('dictionary_main', {'category': app.request.attributes.get('category')}) %}
+        {{ block('back_button') }}
+    </div>
+{% endblock %}
