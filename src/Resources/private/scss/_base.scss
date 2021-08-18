@@ -1,4 +1,4 @@
-@import "../../../../../../assets/css/te_functions/svg-url";
+@import "svg-url";
 
 .blue {
     color: $primary;
@@ -8,7 +8,7 @@ body {
     min-height: 100%;
 }
 body {
-    background: url("../img/bg.png") center;
+    background: url("../../public/img/bg.png") center;
     background-size: cover;
 }
 p,

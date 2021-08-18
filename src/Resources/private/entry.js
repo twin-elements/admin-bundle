@@ -1,9 +1,5 @@
 window.$ = $;
 
-require('./img/logo.png');
-require('./img/bg.png');
-
-
 require('./scss/style.scss');
 
 

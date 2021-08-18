@@ -9,7 +9,7 @@
             {% endif %}
             <div id="cms-login-form" class="d-flex align-items-center justify-content-center flex-column">
                 <div class="h-100 w-100">
-                    <img src="{{ asset('build/admin/images/logo.png', 'admin') }}" alt="Jellinek CMS">
+                    <img src="{{ asset('/bundles/twinelementsadmin/img/logo.png') }}" alt="Jellinek CMS">
                     <form action="{{ path('security_login') }}" method="POST">
                         <div class="form-group d-flex align-items-center">
                             <label for="username">{{ "admin.email"|translate_admin }}:</label>
