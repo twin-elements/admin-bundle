@@ -1,4 +1,4 @@
-const FileManagerModal = require("../../../../../../src/Bundle/CoreAdminBundle/Resources/views/block/te-upload-type-modal-window.html.twig");
+const FileManagerModal = require("twin-elements/admin/src/templates/te-upload-type-modal-window.html.twig");
 import ClipboardJS from "clipboard";
 // $('body').on('shown.bs.modal', '.file-manager-modal', function(){
 //     const _iframe = this;
