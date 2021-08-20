@@ -2,9 +2,12 @@
 
 namespace TwinElements\AdminBundle\Twig\Extension;
 
-class SortableExtension extends \Twig_Extension
-{
+use Twig\Environment;
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFunction;
 
+class SortableExtension extends AbstractExtension
+{
     /**
      * {@inheritdoc}
      */
@@ -15,15 +18,15 @@ class SortableExtension extends \Twig_Extension
 
     public function getFunctions(){
         return [
-            new \Twig_SimpleFunction('renderSortable',[$this, 'renderSortable'],[
+            new TwigFunction('renderSortable',[$this, 'renderSortable'],[
                 'needs_environment' => true,
                 'is_safe' => ['html']
             ])
         ];
     }
 
-    public function renderSortable(\Twig_Environment $environment, string $entity){
-        return $environment->render('@CoreAdmin/sortable/script_ajax.html.twig',[
+    public function renderSortable(Environment $environment, string $entity){
+        return $environment->render('@TwinElementsAdmin/sortable-js.html.twig',[
             'entity' => $entity
         ]);
     }

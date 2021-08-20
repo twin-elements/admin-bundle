@@ -109,7 +109,7 @@ class AdminUserController extends AbstractController
 
         return $this->render('@TwinElementsAdmin/adminuser/edit.html.twig', array(
             'adminUser' => $adminUser,
-            'edit_form' => $editForm->createView(),
+            'form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
 
