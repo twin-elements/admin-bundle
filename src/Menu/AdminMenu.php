@@ -15,7 +15,6 @@ class AdminMenu implements AdminMenuInterface
     {
         return [
             MenuItem::newInstance('cms.dashboard', 'admin_dashboard', [], 0),
-            MenuItem::newInstance('cms.menu', 'menucategory_index', [], 15),
             MenuItem::newInstance('cms.translations', 'dictionary_main', ['category' => 'translations'], 30),
             MenuItem::newInstance('cms.settings', 'dictionary_main', ['category' => 'settings'], 30),
             MenuItem::newInstance('cms.users', 'user_index', [], 50, AdminUserRole::ROLE_ADMIN),
