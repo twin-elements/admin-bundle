@@ -1,6 +1,7 @@
 <?php
 
 namespace TwinElements\AdminBundle\Menu;
+
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 
 /**
@@ -34,18 +35,24 @@ class MenuItem
      */
     private $priority;
 
-    private function __construct($name, $route, array $routeParams = array(), $priority = 20, $role = null)
+    /**
+     * @var array|null
+     */
+    private $voter;
+
+    private function __construct($name, $route, array $routeParams = array(), $priority = 20, $role = null, $voter = null)
     {
         $this->name = (string)$name;
         $this->route = (string)$route;
         $this->routeParams = $routeParams;
         $this->role = (string)$role;
-        $this->priority = (int) $priority;
+        $this->priority = (int)$priority;
+        $this->voter = $voter;
     }
 
-    public static function newInstance($name, $route, array $routeParams = array(), $priority = 20, $role = null)
+    public static function newInstance($name, $route, array $routeParams = array(), $priority = 20, $role = null, $voter = null)
     {
-        return new self($name, $route, $routeParams, $priority, $role);
+        return new self($name, $route, $routeParams, $priority, $role, $voter);
     }
 
     /**
@@ -128,5 +135,11 @@ class MenuItem
         $this->priority = $priority;
     }
 
-
+    /**
+     * @return array|null
+     */
+    public function getVoter(): ?array
+    {
+        return $this->voter;
+    }
 }
