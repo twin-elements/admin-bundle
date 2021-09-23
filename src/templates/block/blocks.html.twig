@@ -162,8 +162,8 @@
 {% endblock %}
 
 {% block circle_header %}
-    <div class="col-md-1 col-lg-1 text-center">
-        {{ circle_header_name|default("cms.status"|trans({}, null, admin_locale)) }}
+    <div class="col-md-1 col-lg-1 justify-content-center">
+        {{ circle_header_name|default("cms.status"|translate_admin) }}
     </div>
 {% endblock %}
 
