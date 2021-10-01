@@ -1,5 +1,13 @@
+you_are_logged_as: Jesteś zalogowany jako
+logout: Wyloguj się
+hello: Witaj
+yes: Tak
+no: Nie
+welcome_to_the_cms: Witamy w autorskim systemie zarządzania treścią Jellinek.
+welcome_to_the_cms_text: '<p>Życzymy miłej i bezproblemowej pracy z naszą aplikacją.</p><p>Jeśli masz pytania dotyczące obsługi CMS, skontaktuj się z nami mailowo: <a href="mailto:biuro@jellinek.pl">biuro@jellinek.pl</a> lub telefonicznie: <a href="tel:+48503123124">503 123 124</a>.</p>'
+
 admin:
-  no_translation: Brak tłumaczenia
+  success_operation: Operacja zakończona powodzeniem
   password: Hasło
   repeat_password: Powtórz hasło
   not_similar_error: Hasła muszą być takie same
@@ -19,10 +27,52 @@ admin:
     translate: Tłumacz
     no_translation: Brak tłumaczenia
     no_available_translations: Brak dostępnych tłumaczeń
+  error: Wystąpił błąd
+  dashboard: Kokpit
+  basic_information: Podstawowe informacje
+  additional_data: Informacje dodatkowe
+  back: Powrót
+  delete: Skasuj
+  active: Aktywny
+  date_added: Data dodania
+  who_added: Kto dodał
+  date_modification: Data modyfikacji
+  who_modified: Kto zmodyfikował
+  users: Użytkownicy
+  title: Tytuł
+  no_title: Brak tytułu
+  teaser: Krótki opis
+  redirect: Przekierowanie
+  buttonName: Nazwa przycisku
+  image: Obrazek
+  translations: Słownik
+  settings: Ustawienia
+  translation: Tłumaczenie
+  no_translation: Brak tłumaczenia
+  no_translation_for_this_locale: Brak tłumaczenia dla danej wersji językowej
+  no_translations: Brak tłumaczenia
+  no_translations_message: UWAGA! Brak tłumaczenia. Nieprzetłumaczony element będzie wyświetlał się nieprawidłowo
+  optional: Opcjonalnie
+  status: Status
+  added_at_modify_at: Dodanie / Modyfikacja
+  add: Dodaj
+  edit: Edytuj
+  remove: Skasuj
+  show: Pokaż
+  save: Zapisz
+  save_and_back: Zapisz i wróc
+  remove_element_action: Kasowanie elementu
+  remove_element_action_alert: 'Naciśnięcie przycisku "skasuj" spowoduje kasację przeglądanego elementu <span class="font-weight-bold text-danger">we wszystkich wersjach językowych</span>. Jeżeli potrzebujesz ukryć element tylko na jednej wersji - deaktywuj go.'
+  no_results: 'Brak elementów'
 
 actions:
   edit: Edycja
   show: Pokaż
+
+te_sortable:
+  no_access: Brak dostępu
+  no_items: Brak elementów
+  changed_done: Pozycje zostały zmienione
 
 role:
   role_admin: Administrator

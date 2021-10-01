@@ -68,7 +68,7 @@ class TranslateController extends AbstractController
         $keys = array_keys($yamlLoader->load($translationsPaths[$request->getDefaultLocale()], $request->getDefaultLocale(), $this->category)->all($this->category));
 
         $breadcrumbs->setItems([
-            'cms.'.$category => null
+            'admin.'.$category => null
         ]);
         return $this->render('@TwinElementsAdmin/translations/index.html.twig', [
             'category' => $category,
@@ -134,7 +134,7 @@ class TranslateController extends AbstractController
         }
 
         $breadcrumbs->setItems([
-            'cms.'.$category => $this->generateUrl('dictionary_main', [
+            'admin.'.$category => $this->generateUrl('dictionary_main', [
                 'category' => $category
             ]),
             $key => null

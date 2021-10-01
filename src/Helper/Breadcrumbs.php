@@ -15,7 +15,7 @@ class Breadcrumbs
         $this->breadcrumbs = $breadcrumbs;
         $this->router = $router;
 
-        $this->breadcrumbs->addItem($translator->trans('cms.dashboard',[], null, $adminLocale), $this->router->generate('admin_dashboard'));
+        $this->breadcrumbs->addItem($translator->trans('admin.dashboard',[], null, $adminLocale), $this->router->generate('admin_dashboard'));
     }
 
     /**

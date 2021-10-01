@@ -1,0 +1,54 @@
+you_are_logged_as: Вы вошли как
+logout: Выйти
+hello: Приветствую
+yes: Да
+no: Нет
+welcome_to_the_cms: Приветствуем в CMS Jellinek
+welcome_to_the_cms_text: '<p>Желаем приятной работы с нашим приложением.</p><p>Если у вас есть вопросы по поддержке CMS, свяжитесь с нами по электронной почте.: <a href="mailto:biuro@jellinek.pl">biuro@jellinek.pl</a> или по телефону: <a href="tel:+48503123124">503 123 124</a>.</p>'
+
+admin:
+  success_operation: Изменения были записаны успешно
+  error: Появилась ошибка
+  dashboard: Главная
+  pages_list: Список страниц
+  basic_information: Основные данные
+  additional_data: Дополнительные данные
+  back: Назад
+  back_to_newscategories_list: Вернуть к списку категорий
+  delete: Удалить
+  active: Активный
+  date_added: Дата создания
+  who_added: Кто создал
+  date_modification: Дата изменений
+  who_modified: Кто изменил
+  menu: Меню
+  news: Записи
+  email: Имеил
+  roles: Права пользователя
+  users: Пользователи
+  title: Заголовок
+  no_title: Заголовок отсутствует
+  teaser: Короткое описание
+  redirect: Перенаправить
+  buttonName: Название кнопки
+  image: Изображение
+  translations: Словарь
+  settings: Настройки
+  translation: Перевод
+  no_translation: Нет перевода
+  no_translation_for_this_locale: Нет перевода для данного языка
+  no_translations: Нет перевода
+  no_translations_message: Внимание! Нет перевода. Не переведенные элементы не будут правильно отображаться.
+  optional: Опционально
+  status: Статус
+  added_at_modify_at: Добавлено / Изменено
+
+  #actions
+  add: Добавить
+  edit: Изменить
+  remove: Удалить
+  show: Показать
+  save: Записать
+  save_and_back: Записать и вернуться
+  remove_element_action: Удалить элемент
+  remove_element_action_alert: 'Нажатие кнопки УДАЛИТЬ спровоцирует удаление данного элемента <span class="font-weight-bold text-danger">на всех языковых версиях</span>. Если нужно удалить только для одной версии - деактивируйте элемент.'

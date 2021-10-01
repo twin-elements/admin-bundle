@@ -2,7 +2,7 @@
 {% block add_button %}
     {% if is_granted('ROLE_ADMIN') and app.request.locale == app.request.defaultLocale and add_button_link is defined %}
         <a href="{{ add_button_link }}"
-           class="btn btn-primary rounded-pill">{% if name is defined %}{{ name }}{% else %}{{ "cms.add"|trans({},null,admin_locale) }}{% endif %}</a>
+           class="btn btn-primary rounded-pill">{% if name is defined %}{{ name }}{% else %}{{ "admin.add"|translate_admin }}{% endif %}</a>
     {% endif %}
 {% endblock %}
 
@@ -13,7 +13,7 @@
 {% endblock %}
 
 {% block add_action_link %}
-    {% set name = "cms.add"|trans({},null,admin_locale) %}
+    {% set name = "admin.add"|translate_admin %}
     {{ block('primary_link') }}
 {% endblock %}
 
@@ -22,7 +22,7 @@
         {%- if back_button_name is defined and back_button_name -%}
             {{ back_button_name }}
         {%- else -%}
-            {{ "cms.back"|trans({},null,admin_locale) }}
+            {{ "admin.back"|translate_admin }}
         {%- endif -%}
     </a>
 {% endblock %}
@@ -49,7 +49,7 @@
 {% endblock %}
 
 {% block list_li_begin %}
-<li {% if id is defined %}id="{{ id }}"{% endif %} class="sortable-item">
+<li {% if id is defined %}data-id="{{ id }}"{% endif %} class="sortable-item">
     <div class="level_content row align-items-center">
         {% endblock %}
 
@@ -62,17 +62,17 @@
     <div class="cms-section">
         <p class="d-flex flex-column">
             {% if entity.createdAt %}
-                <span class="mb-2">{{ "cms.date_added"|translate_admin }}: <b>{{ entity.createdAt|date(datetime_type) }}</b></span>
+                <span class="mb-2">{{ "admin.date_added"|translate_admin }}: <b>{{ entity.createdAt|date(datetime_type) }}</b></span>
             {% endif %}
             {% if entity.createdBy %}
-                <span class="mb-2">{{ "cms.who_added"|translate_admin }}: <b
+                <span class="mb-2">{{ "admin.who_added"|translate_admin }}: <b
                             class="text-capitalize">{{ entity.createdBy }}</b></span>
             {% endif %}
             {% if entity.updatedAt %}
-                <span class="mb-2">{{ "cms.date_modification"|translate_admin }}: <b>{{ entity.updatedAt|date(datetime_type) }}</b></span>
+                <span class="mb-2">{{ "admin.date_modification"|translate_admin }}: <b>{{ entity.updatedAt|date(datetime_type) }}</b></span>
             {% endif %}
             {% if entity.updatedBy %}
-                <span>{{ "cms.who_modified"|translate_admin }}: <b class="text-capitalize">{{ entity.updatedBy }}</b></span>
+                <span>{{ "admin.who_modified"|translate_admin }}: <b class="text-capitalize">{{ entity.updatedBy }}</b></span>
             {% endif %}
         </p>
     </div>
@@ -84,16 +84,16 @@
         <div class="cms-section">
             <p class="d-flex flex-column">
                 {% if changes.createdAt is defined %}
-                    <span>{{ "cms.date_added"|trans({},null,admin_locale) }}: <b>{{ changes.createdAt|date(datetime_type) }}</b></span>
+                    <span>{{ "admin.date_added"|trans({},null,admin_locale) }}: <b>{{ changes.createdAt|date(datetime_type) }}</b></span>
                 {% endif %}
                 {% if changes.whoCreated is defined %}
-                    <span>{{ "cms.who_added"|trans({},null,admin_locale) }}: <b class="text-capitalize">{{ changes.whoCreated }}</b></span>
+                    <span>{{ "admin.who_added"|trans({},null,admin_locale) }}: <b class="text-capitalize">{{ changes.whoCreated }}</b></span>
                 {% endif %}
                 {% if changes.updatedAt is defined %}
-                    <span>{{ "cms.date_modification"|trans({},null,admin_locale) }}: <b>{{ changes.updatedAt|date(datetime_type) }}</b></span>
+                    <span>{{ "admin.date_modification"|trans({},null,admin_locale) }}: <b>{{ changes.updatedAt|date(datetime_type) }}</b></span>
                 {% endif %}
                 {% if changes.whoUpdated is defined %}
-                    <span>{{ "cms.who_modified"|trans({},null,admin_locale) }}: <b class="text-capitalize">{{ changes.whoUpdated }}</b></span>
+                    <span>{{ "admin.who_modified"|trans({},null,admin_locale) }}: <b class="text-capitalize">{{ changes.whoUpdated }}</b></span>
                 {% endif %}
             </p>
         </div>
@@ -125,13 +125,22 @@
     </div>
 {% endblock %}
 
+{% block sortable %}
+    {% if sortable is defined %}
+        <script>
+            var IS_SORTABLE_ENABLED = true;
+            var ENTITY_NAMESPACE = "{{ sortable|escape('js') }}";
+        </script>
+    {% endif %}
+{% endblock %}
+
 {% block delete_form %}
     {% if is_granted('ROLE_ADMIN') and delete_form is defined %}
         <div class="cms-section">
-            <h5>{{ "cms.remove_element_action"|trans({}, null, admin_locale) }}</h5>
-            <p>{{ "cms.remove_element_action_alert"|trans({}, null, admin_locale)|raw }}</p><br>
+            <h5>{{ "admin.remove_element_action"|trans({}, null, admin_locale) }}</h5>
+            <p>{{ "admin.remove_element_action_alert"|trans({}, null, admin_locale)|raw }}</p><br>
             {{ form_start(delete_form) }}
-            <button type="submit" class="btn btn-dark">{{ "cms.remove"|trans({}, null, admin_locale) }}</button>
+            <button type="submit" class="btn btn-dark">{{ "admin.remove"|trans({}, null, admin_locale) }}</button>
             {{ form_end(delete_form) }}
         </div>
     {% endif %}
@@ -163,7 +172,7 @@
 
 {% block circle_header %}
     <div class="col-md-1 col-lg-1 justify-content-center">
-        {{ circle_header_name|default("cms.status"|translate_admin) }}
+        {{ circle_header_name|default("admin.status"|translate_admin) }}
     </div>
 {% endblock %}
 
@@ -200,7 +209,7 @@
 
 {% block list_changes_header %}
     <div class="col-md-3 col-xl-2">
-        {{ "cms.added_at_modify_at"|trans({},null,admin_locale) }}
+        {{ "admin.added_at_modify_at"|trans({},null,admin_locale) }}
     </div>
 {% endblock %}
 
@@ -227,7 +236,7 @@
     <div class="pt-5 pb-5">
         <div class="card">
             <div class="card-body">
-                {{ 'cms.no_results'|trans({},null,admin_locale) }}
+                {{ 'admin.no_results'|trans({},null,admin_locale) }}
             </div>
         </div>
     </div>
