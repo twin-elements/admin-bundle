@@ -1,0 +1,56 @@
+you_are_logged_as: You are logged as
+logout: Log out
+hello: Hello
+yes: Yes
+no: No
+welcome_to_the_cms: Welcome to Jellilnek CMS.
+welcome_to_the_cms_text: '<p>We wish you pleasant and trouble-free work.</p><p>In case of questions regarding the use of CMS, contact as by e-mail: <a href="mailto:biuro@jellinek.pl"> or by phone: <a href="tel:+48503123124">503 123 124</a>.</p>'
+
+admin:
+  success_operation: The operation was completed successfully
+  error: An error occured
+  dashboard: Dashboard
+  pages_list: List of pages
+  basic_information: Basic information
+  additional_data: Additional information
+  back: Go back
+  back_to_newscategories_list: Return to the category list
+  delete: Delete
+  active: Active
+  date_added: Added on
+  who_added: Added by
+  date_modification: Modification date
+  who_modified: Modified by
+  menu: Menu
+  news: Posts
+  email: Email
+  roles: Roles
+  gallery: Gallery
+  logo: Logos
+  users: Users
+  albums: Albums
+  title: Title
+  no_title: No title
+  teaser: Teaser
+  redirect: Redirect
+  buttonName: Button name
+  image: Image
+  translations: Translations
+  settings: Settings
+  translation: Translation
+  no_translation: No translation
+  no_translation_for_this_locale: No translation for whis language
+  no_translations: No translation
+  no_translations_message: WARNING! No translation. The untranslated item will display incorrectly
+  optional: Optional
+  status: Status
+  added_at_modify_at: Added at / Modified at
+  #actions
+  add: Add
+  edit: Edit
+  remove: Delete
+  show: Show
+  save: Save
+  save_and_back: Save and return
+  remove_element_action: Deleting items
+  remove_element_action_alert: 'Pressing the "delete" button will delete the viewed item <span class="font-weight-bold text-danger">in all language versions</span>. If you need to hide an item in one version only - deactivate it.'

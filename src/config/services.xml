@@ -13,7 +13,6 @@
         <prototype namespace="TwinElements\AdminBundle\Controller\" resource="../../src/Controller/*">
             <tag name="controller.service_arguments"/>
             <bind key="$locales">%app_locales%</bind>
-<!--            <bind key="$adminLocale">%admin_locale%</bind>-->
         </prototype>
 
         <prototype namespace="TwinElements\AdminBundle\Form\" resource="../../src/Form/*">

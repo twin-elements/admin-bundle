@@ -19,7 +19,7 @@ class Flashes
     public function successMessage($message = null)
     {
         if (null === $message) {
-            $message = $this->translator->trans('cms.success_operation');
+            $message = $this->translator->trans('admin.success_operation');
         }
 
         $this->session->getFlashBag()->add('success', $message);
