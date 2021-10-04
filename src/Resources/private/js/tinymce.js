@@ -37,7 +37,8 @@ import './tinymce-extended-code-editor-plugin.js';
 function TEFileBrowser(callback, value, meta) {
 
     var type = meta.filetype;
-    var cmsURL = FILEMANAGER_URL;
+    var cmsURL = Routing.generate('file_manager', {module: 'tiny', conf: 'button'});
+    console.log(cmsURL);
     if (cmsURL.indexOf("?") < 0) {
         cmsURL = cmsURL + "?type=" + type;
     } else {
