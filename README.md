@@ -1,4 +1,5 @@
 ##Installation
+```composer require twin-elements/admin-bundle```
 
 in `/config/packages/routes.yaml` add
 ```
@@ -6,7 +7,8 @@ admin_dashboard:
     path: /admin/
     controller: TwinElements\AdminBundle\Controller\DashboardController::index
     methods: GET
-
+    options: { i18n: false }
+    
 admin_core:
     resource: "@TwinElementsAdminBundle/Controller/"
     type: annotation
@@ -19,7 +21,7 @@ admin_core:
     options: { i18n: false }
 ```
 
-add in `/config/packages/security.yaml `
+in `/config/packages/security.yaml ` add
 ```
 imports:
     - { resource: '@TwinElementsAdminBundle/Resources/config/security.yaml' }
@@ -51,5 +53,11 @@ role:
     <tag name="twin_elements.admin_menu"/>
 </service>
 ```
-3.Menu items automatically added in main admin menu
+3.Done
+
+#### Creating a new super admin user
+
+In the command line entre the command: 
+
+``php bin/console te:admin:create_super_admin``
 
