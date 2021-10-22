@@ -11,7 +11,7 @@
     {{ block('list_ul_begin') }}
         {{ block('list_li_header_begin') }}
                 {{ block('id_header') }}
-                <div class="col-md-4">Login</div>
+                <div class="col">Login</div>
                 <div class="col-md-4">E-mail</div>
                 <div class="col-md-2">Data utworzenia</div>
                 {{ block('circle_header') }}
@@ -22,15 +22,14 @@
 
             {{ block('list_li_begin') }}
                 {{ block('id') }}
-                <div class="col-md-4">
+                <div class="col">
                     <div class="title">
-                        {{ user.username }}
-                        <br>
-                        <div class="hidden-bar">
-                            {% if is_granted('ROLE_ADMIN') %}
-                                <a href="{{ path('user_edit', { 'id': user.id }) }}">Edytuj</a>
-                            {% endif %}
-                        </div>
+                        {% if is_granted('ROLE_ADMIN') %}
+                            {% set editPath = path('user_edit', { 'id': user.id }) %}
+                        {% endif %}
+                        <a {% if editPath is defined %}href="{{ editPath }}"{% endif %}>
+                            {{ user.username }}
+                        </a>
                     </div>
                 </div>
                 <div class="col-md-4">

@@ -2,29 +2,29 @@
 
 {% block title %}{{ ('admin.' ~ category) | trans }}{% endblock %}
 {% block buttons %}
-    <a href="{{ path('translations_update') }}" class="btn btn-primary">{{ "admin.dictionary.update_data"|translate_admin }}</a>
+    <a href="{{ path('translations_update') }}"
+       class="btn btn-primary">{{ "admin.dictionary.update_data"|translate_admin }}</a>
 {% endblock %}
 {% block list %}
     {% if translations|length > 0 %}
         {{ block('list_ul_begin') }}
         {{ block('list_li_header_begin') }}
-        <div class="col-md-3 col-xl-2">{{ "admin.dictionary.key"|translate_admin }}</div>
+        <div class="col-md-3 col-xl-2 pl-0">{{ "admin.dictionary.key"|translate_admin }}</div>
         <div class="col">{{ "admin.dictionary.translation"|translate_admin }}</div>
         <div class="col-md-1"></div>
         {{ block('list_li_header_end') }}
 
         {% for key in keys %}
             {{ block('list_li_begin') }}
-            <div class="col-md-3 col-xl-2">
+            <div class="col-md-3 col-xl-2 pl-0">
                 <div class="text-truncate w-100" title="{{ key }}">
                     {{ key }}
                 </div>
             </div>
-            <div class="col">{% if translations[key] is defined %}{{ translations[key] }}{% else %} <span class="badge badge-warning">{{ 'admin.no_translations' | trans }}</span> {% endif %}</div>
-            <div class="col-md-1">
-                <a class="btn btn-sm btn-primary"
-                   href="{{ path( 'dictionary_key_edit' , {'category': category, 'key': key}) }}">{{ "admin.dictionary.translate"|translate_admin }}</a>
-            </div>
+            <div class="col">{% if translations[key] is defined %}{{ translations[key] }}{% else %} <span
+                        class="badge badge-warning">{{ 'admin.no_translations' | trans }}</span> {% endif %}</div>
+            <a class="btn btn-sm btn-primary"
+               href="{{ path( 'dictionary_key_edit' , {'category': category, 'key': key}) }}">{{ "admin.dictionary.translate"|translate_admin }}</a>
             {{ block('list_li_end') }}
         {% endfor %}
         {{ block('list_ul_end') }}

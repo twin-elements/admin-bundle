@@ -18,7 +18,7 @@
 {% endblock %}
 
 {% block back_button %}
-    <a href="{{ back_button_link }}" class="btn btn-primary">
+    <a href="{{ back_button_link }}" class="btn btn-primary rounded-pill">
         {%- if back_button_name is defined and back_button_name -%}
             {{ back_button_name }}
         {%- else -%}
@@ -31,7 +31,7 @@
 {# list #}
 
 {% block list_ul_begin %}
-<ul class="cms-list sortable">
+<ul class="{# cms-list w-100 flex-shrink-0 #} sortable list-group">
     {% endblock %}
 
     {% block list_ul_end %}
@@ -39,22 +39,22 @@
 {% endblock %}
 
 {% block list_li_header_begin %}
-<li class="header ">
-    <div class="level_content row align-items-center">
+<li class="{# header level_content row align-items-center w-100 flex-shrink-0 #} list-group-item d-flex align-items-center flex-wrap">
+{#    <div class="">#}
         {% endblock %}
 
         {% block list_li_header_end %}
-    </div>
+{#    </div>#}
 </li>
 {% endblock %}
 
 {% block list_li_begin %}
-<li {% if id is defined %}data-id="{{ id }}"{% endif %} class="sortable-item">
-    <div class="level_content row align-items-center">
+<li {% if id is defined %}data-id="{{ id }}"{% endif %} class="sortable-item d-flex align-items-center list-group-item-action {# level_content row align-items-center w-100 flex-shrink-0 #} list-group-item flex-wrap">
+{#    <div class="">#}
         {% endblock %}
 
         {% block list_li_end %}
-    </div>
+{#    </div>#}
 </li>
 {% endblock %}
 
@@ -147,13 +147,13 @@
 {% endblock %}
 
 {% block id_header %}
-    <div class="text-center list-id-col px-3">
+    <div class="id-cell">
         ID
     </div>
 {% endblock %}
 
 {% block id %}
-    <div class="text-center list-id-col px-3">
+    <div class="id-cell">
         {% if id is defined %}
             {{ id }}
         {% endif %}
@@ -161,23 +161,23 @@
 {% endblock %}
 
 {% block move_header %}
-    <div class="col-md-1 text-center"></div>
+    <div class="move-cell"></div>
 {% endblock %}
 
 {% block move %}
-    <div class="col-md-1 text-center">
+    <div class="move-cell">
         <span class="move ui-sortable-handle"><i class="jcon jcon-movement"></i></span>
     </div>
 {% endblock %}
 
 {% block circle_header %}
-    <div class="col-md-1 col-lg-1 justify-content-center">
+    <div class="circle-cell">
         {{ circle_header_name|default("admin.status"|translate_admin) }}
     </div>
 {% endblock %}
 
 {% block circle %}
-    <div class="col-md-1 col-lg-1 justify-content-center">
+    <div class="circle-cell">
         {% if circle_active is defined %}
             <div class="circle circle-color-{% if circle_active %}1{% else %}0{% endif %}"></div>
         {% endif %}
@@ -185,7 +185,7 @@
 {% endblock %}
 
 {% block changes_box_in_list %}
-    <div class="col-md-3 col-xl-2">
+    <div class="changes-cell">
         <div {% if updatedAt %}class="more-dates"{% endif %} >
             {% if updatedAt %}
                 <span class="small">{{ createdAt|date(datetime_type) }}
@@ -208,7 +208,7 @@
 {% endblock %}
 
 {% block list_changes_header %}
-    <div class="col-md-3 col-xl-2">
+    <div class="changes-cell">
         {{ "admin.added_at_modify_at"|trans({},null,admin_locale) }}
     </div>
 {% endblock %}
@@ -233,21 +233,9 @@
 {% endblock %}
 
 {% block no_elements %}
-    <div class="pt-5 pb-5">
-        <div class="card">
-            <div class="card-body">
-                {{ 'admin.no_results'|trans({},null,admin_locale) }}
-            </div>
-        </div>
-    </div>
-{% endblock %}
-
-{% block single_image_preview %}
-    {% import 'macro/print_crop.html.twig' as crop %}
-    {% if single_image is defined and single_image is not null %}
-        {% set file_path = crop.printCrop(single_image) %}
-        {{ block('single_image_preview_template') }}
-    {% endif %}
+    {{ block('list_li_begin') }}
+        {{ 'admin.no_results'|translate_admin }}
+    {{ block('list_li_end') }}
 {% endblock %}
 
 {% block single_image_preview_template %}
