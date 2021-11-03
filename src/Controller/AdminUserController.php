@@ -103,7 +103,7 @@ class AdminUserController extends AbstractController
         }
 
         $this->breadcrumbs->setItems([
-            'cms.users' => $this->generateUrl('user_index'),
+            'admin.users' => $this->generateUrl('user_index'),
             $adminUser->getUsername() => null
         ]);
 
