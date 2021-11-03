@@ -12,7 +12,6 @@ require('pc-bootstrap4-datetimepicker/build/js/bootstrap-datetimepicker.min');
 require('lightbox2');
 require('select2');
 require('./main');
-require('./menu_action');
 require('cropper/dist/cropper.min');
 require('./collection-type');
 

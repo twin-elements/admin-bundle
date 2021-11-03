@@ -1,20 +1,5 @@
 const FileManagerModal = require("twin-elements/admin/src/templates/te-upload-type-modal-window.html.twig");
 import ClipboardJS from "clipboard";
-// $('body').on('shown.bs.modal', '.file-manager-modal', function(){
-//     const _iframe = this;
-//     const _$iframe = $(_iframe);
-//     console.log(_$iframe);
-//     const _$modal = _$iframe.parents('.file-manager-modal');
-//     const _inputId = _$modal.attr('data-input-id');
-//     _$iframe.on('click', '.select', function () {
-//         const dataPath = $(this).attr('data-path');
-//         $(`#${_inputId}`).val(dataPath);
-//         // $(`#${_inputId}-delete-button`).removeAttr(disabled);
-//         _$modal.modal('hide');
-//         // return false;
-//     });
-//     // return false;
-// });
 
 $(".file-manager-delete-button").on("click", function () {
     const _inputId = $(this).attr("id").split("-").reverse().slice(2).reverse().join("-");
@@ -72,6 +57,7 @@ $(document).ready(function () {
         _$copyButton.attr("disabled", true);
         return false;
     });
+
     $(".filemanager-input").on("keydown paste", function (event) {
         event.preventDefault();
     });
@@ -91,27 +77,6 @@ $(document).ready(function () {
         },
     });
 
-    // $('[data-toggle="removeDocumentRelation"]').click(function () {
-    //
-    //     var element = $(this);
-    //     var object = $(this).data('objectId');
-    //     var document = $(this).data('documentId');
-    //     var className = $(this).data('class');
-    //
-    //     $.ajax({
-    //         'url': Routing.generate('document_ajax_remove_relation'),
-    //         'data': {'class': className, 'object': object, 'document': document},
-    //         'type': 'post',
-    //         'success': function (e) {
-    //             if (e) {
-    //                 $(element).parent().remove();
-    //                 $('#document_documents_' + document).prop('checked', false);
-    //             }
-    //         }
-    //     })
-    //
-    // });
-
     $("form").submit(function (e) {
         if (
             $(this).find('input[name="_method"]').length &&
@@ -123,27 +88,27 @@ $(document).ready(function () {
         }
     });
 
-    $("#category-tree .open-children").on("click", function () {
-        var id = $(this).data("id");
-        $("ul#" + id).toggleClass("active");
-    });
-
-    if ("#active-tree-element") {
-        var parentsTree = $("#active-tree-element").parents("ul");
-        $.each(parentsTree, function (index, value) {
-            $(value).addClass("active");
-        });
-    }
+    // $("#category-tree .open-children").on("click", function () {
+    //     var id = $(this).data("id");
+    //     $("ul#" + id).toggleClass("active");
+    // });
+    //
+    // if ("#active-tree-element") {
+    //     var parentsTree = $("#active-tree-element").parents("ul");
+    //     $.each(parentsTree, function (index, value) {
+    //         $(value).addClass("active");
+    //     });
+    // }
 
     $(".select2").select2({
         theme: "bootstrap4",
     });
 
-    $(".images_widget_image").on("click", function () {
-        var radioID = $(this).attr("data-id");
-        var inputID = "#" + radioID;
-        $(inputID).prop("checked", !$(inputID).prop("checked"));
-    });
+    // $(".images_widget_image").on("click", function () {
+    //     var radioID = $(this).attr("data-id");
+    //     var inputID = "#" + radioID;
+    //     $(inputID).prop("checked", !$(inputID).prop("checked"));
+    // });
 
     $("body").on("click", ".open-file-manager-btn", function () {
         const _self = this;
