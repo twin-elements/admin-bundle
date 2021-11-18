@@ -54,3 +54,7 @@ admin:
   save_and_back: Save and return
   remove_element_action: Deleting items
   remove_element_action_alert: 'Pressing the "delete" button will delete the viewed item <span class="font-weight-bold text-danger">in all language versions</span>. If you need to hide an item in one version only - deactivate it.'
+
+translations:
+  switch_to_content_editor: Swith to content editor
+  switch_to_content_editor_warning: Use this option only if you are editing content that contains <b>HTML language elements</b>.

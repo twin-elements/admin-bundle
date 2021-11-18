@@ -74,6 +74,10 @@ te_sortable:
   no_items: Brak elementów
   changed_done: Pozycje zostały zmienione
 
+translations:
+  switch_to_content_editor: Przełącz na edytor treści
+  switch_to_content_editor_warning: Z tej opcji należy korzystać tylko i wyłącznie w przypadku edycji treści, które zawierają <b>elementy języka HTML</b>.
+
 role:
   role_admin: Administrator
   role_user: Podstawowy dostęp

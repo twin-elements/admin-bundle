@@ -1,9 +1,25 @@
 {% extends '@TwinElementsAdmin/core/details.html.twig' %}
 {% block title %}{{ key }}{% endblock %}
 
+{% block head_js %}
+    <script>
+        var IS_TRANSLATIONS_PAGE = true;
+    </script>
+{% endblock %}
+
 {% block buttons %}
     <div>
         {% set back_button_link = path('dictionary_main', {'category': app.request.attributes.get('category')}) %}
         {{ block('back_button') }}
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="d-flex flex-column align-items-end mb-6">
+        <button id="textarea-to-tinymce" class="btn btn-outline-primary btn-sm rounded-pill">{{ "translations.switch_to_content_editor"|translate_admin }}</button>
+        <p class="mb-0 mt-4">{{ "translations.switch_to_content_editor_warning"|translate_admin|raw }}</p>
+    </div>
+    <div>
+        {{ form(form) }}
     </div>
 {% endblock %}

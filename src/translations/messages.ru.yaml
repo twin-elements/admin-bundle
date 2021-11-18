@@ -52,3 +52,8 @@ admin:
   save_and_back: Записать и вернуться
   remove_element_action: Удалить элемент
   remove_element_action_alert: 'Нажатие кнопки УДАЛИТЬ спровоцирует удаление данного элемента <span class="font-weight-bold text-danger">на всех языковых версиях</span>. Если нужно удалить только для одной версии - деактивируйте элемент.'
+
+
+translations:
+  switch_to_content_editor: Переключить на редактор содержимого
+  switch_to_content_editor_warning: Используйте эту опцию, только если вы редактируете контент, содержащий <b>элементы языка HTML</b>.
