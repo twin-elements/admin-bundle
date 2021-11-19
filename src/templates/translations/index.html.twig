@@ -1,6 +1,6 @@
 {% extends '@TwinElementsAdmin/core/list.html.twig' %}
 
-{% block title %}{{ ('admin.' ~ category) | trans }}{% endblock %}
+{% block title %}{{ ('admin.' ~ category) | translate_admin }}{% endblock %}
 {% block buttons %}
     <a href="{{ path('translations_update') }}"
        class="btn btn-primary">{{ "admin.dictionary.update_data"|translate_admin }}</a>
@@ -14,15 +14,15 @@
         <div class="col-md-1"></div>
         {{ block('list_li_header_end') }}
 
-        {% for key in keys %}
+        {% for key,translation in translations %}
             {{ block('list_li_begin') }}
             <div class="col-md-3 col-xl-2 pl-0">
                 <div class="text-truncate w-100" title="{{ key }}">
                     {{ key }}
                 </div>
             </div>
-            <div class="col">{% if translations[key] is defined %}{{ translations[key] }}{% else %} <span
-                        class="badge badge-warning">{{ 'admin.no_translations' | trans }}</span> {% endif %}</div>
+            <div class="col">{% if translation %}{{ translation }}{% else %} <span
+                        class="badge badge-warning">{{ 'admin.no_translations' | translate_admin }}</span> {% endif %}</div>
             <a class="btn btn-sm btn-primary"
                href="{{ path( 'dictionary_key_edit' , {'category': category, 'key': key}) }}">{{ "admin.dictionary.translate"|translate_admin }}</a>
             {{ block('list_li_end') }}
