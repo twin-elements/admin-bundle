@@ -10,6 +10,7 @@ $icomoon-font-path: '../../fonts';
 
 @import "jcons/variables";
 @import "variables/bootstrap-variables";
+@import "~bootstrap/scss/bootstrap";
 @import "select2-variables";
 
 @import "~pc-bootstrap4-datetimepicker/src/sass/bootstrap-datetimepicker-build.css";
@@ -21,7 +22,7 @@ $icomoon-font-path: '../../fonts';
 @import "~@ttskch/select2-bootstrap4-theme/src/layout";
 @import "~cropper/dist/cropper.min.css";
 
-@import "~bootstrap/scss/bootstrap";
+
 @import "headings";
 @import "login";
 @import "top";
