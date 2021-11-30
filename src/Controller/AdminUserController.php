@@ -97,7 +97,7 @@ class AdminUserController extends AbstractController
             }
 
             $this->getDoctrine()->getManager()->flush();
-            $this->flashes->successMessage();
+            $this->flashes->successMessage($this->adminTranslator->translate('admin.success_operation'));
 
             return $this->redirectToRoute('user_edit', array('id' => $adminUser->getId()));
         }

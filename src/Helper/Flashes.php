@@ -5,6 +5,9 @@ namespace TwinElements\AdminBundle\Helper;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
+/**
+ * @deprecated use TwinElements\Components\Flashes
+ */
 class Flashes
 {
     private $session;
