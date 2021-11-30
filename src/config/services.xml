@@ -47,6 +47,6 @@
             <bind key="$adminLocale">%admin_locale%</bind>
         </service>
 
-        <service id="TwinElements\Components\Flashes\Flashes" />
+        <service id="TwinElements\Component\Flashes\Flashes" />
     </services>
 </container>
