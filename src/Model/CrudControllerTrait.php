@@ -5,7 +5,7 @@ namespace TwinElements\AdminBundle\Model;
 use TwinElements\AdminBundle\Helper\Breadcrumbs;
 use TwinElements\AdminBundle\Helper\CrudLoggerMessage;
 use TwinElements\AdminBundle\Service\AdminTranslator;
-use TwinElements\Components\Flashes\Flashes;
+use TwinElements\Component\Flashes\Flashes;
 
 trait CrudControllerTrait
 {
