@@ -5855,8 +5855,7 @@
         }
         this.styleFormatConfig = new StyleFormatConfig();
         this.styleFormatsAll = this.styleFormatConfig.getStyleFormats();
-        var _loop_2 = function (index) {
-          var format = this_2.styleFormatsAll[index];
+        this.styleFormatsAll.forEach(function (format) {
           if (activeKeys.includes(format.title)) {
             var stylesToTest = [
               'Text styles',
@@ -5864,18 +5863,17 @@
               'Container styles'
             ];
             if (stylesToTest.includes(format.title)) {
-              var tempFormat = {
+              var tempFormat_1 = {
                 title: format.title,
                 items: []
               };
               var props = format.items;
-              var propsToTest = [
+              var propsToTest_1 = [
                 'Margin',
                 'Padding'
               ];
-              var _loop_3 = function (index_1) {
-                var prop = props[index_1];
-                if (propsToTest.includes(prop.title)) {
+              props.forEach(function (prop) {
+                if (propsToTest_1.includes(prop.title)) {
                   var tempProps_1 = {
                     title: prop.title,
                     items: []
@@ -5889,59 +5887,52 @@
                   Object.entries(screensToTest).forEach(function (_a) {
                     var screenKey = _a[0], screenTitle = _a[1];
                     if (_this.editorStyleFormats.responsive.includes(screenKey)) {
-                      var tempScreen = {
+                      var tempScreen_1 = {
                         title: screenTitle,
                         items: []
                       };
                       var spacings = _this.editorStyleFormats.spacing;
-                      var tempSpacing = [];
-                      for (var index_2 = 0; index_2 < spacings.length; index_2++) {
-                        var spacingTitle = spacings[index_2];
+                      var tempSpacing_1 = [];
+                      spacings.forEach(function (spacingTitle) {
                         var spItems = _this.findStyleFormatItems(format.title, prop.title, screenTitle, spacingTitle);
-                        tempScreen.items.push(spItems);
-                        tempSpacing.push(spItems);
+                        tempScreen_1.items.push(spItems);
+                        tempSpacing_1.push(spItems);
                         spItems.items.forEach(function (item) {
                           if ('classes' in item) {
                             _this.addStyleFormat(item);
                           }
                         });
-                      }
+                      });
                       if (_this.editorStyleFormats.responsive.length > 1) {
-                        tempProps_1.items.push(tempScreen);
+                        tempProps_1.items.push(tempScreen_1);
                       } else {
-                        tempProps_1.items.push(tempSpacing);
+                        tempProps_1.items.push(tempSpacing_1);
                       }
                     }
                   });
-                  tempFormat.items.push(tempProps_1);
+                  tempFormat_1.items.push(tempProps_1);
                 } else {
-                  tempFormat.items.push(prop);
+                  tempFormat_1.items.push(prop);
                   prop.items.forEach(function (item) {
                     if ('classes' in item) {
                       _this.addStyleFormat(item);
                     } else if ('items' in item) {
-                      item.items.forEach(function (item) {
-                        if ('classes' in item) {
-                          _this.addStyleFormat(item);
+                      item.items.forEach(function (it) {
+                        if ('classes' in it) {
+                          _this.addStyleFormat(it);
                         }
                       });
                     }
                   });
                 }
-              };
-              for (var index_1 = 0; index_1 < props.length; index_1++) {
-                _loop_3(index_1);
-              }
-              outputStyleFormats.push(tempFormat);
+              });
+              outputStyleFormats.push(tempFormat_1);
             } else {
               outputStyleFormats.push(format);
             }
           }
-        };
-        var this_2 = this;
-        for (var index = 0; index < this.styleFormatsAll.length; index++) {
-          _loop_2(index);
-        }
+        });
+        console.log(this.styleFormatsActive);
         this.editor.settings.style_formats = outputStyleFormats;
         var toolbarElements = [];
         for (var _f = 0, _g = Object.entries(this.elements); _f < _g.length; _f++) {
@@ -6027,13 +6018,6 @@
               var nodeType = match[1];
               var prop_1 = match[2];
               var value = match[3];
-              var range = tinymce.activeEditor.selection.getRng();
-              var selectedLength = range.endOffset - range.startOffset;
-              if (selectedLength > 0) {
-                var ct = tinymce.activeEditor.selection.getContent();
-                tinymce.activeEditor.selection.setContent('<span />' + ct + '</span>');
-                tinymce.activeEditor.dom.select(ct);
-              }
               var $node_1 = tinymce.activeEditor.selection.getNode();
               if (nodeType === 'block') {
                 $node_1 = _this.$($node_1).closest(_this.styleFormatConfig.blockSelector);
@@ -6248,7 +6232,7 @@
           'After'
         ];
         rowPos.forEach(function (pos) {
-          var _loop_4 = function (i) {
+          var _loop_2 = function (i) {
             var columnText = 'column';
             if (i > 1) {
               columnText = 'columns';
@@ -6261,7 +6245,7 @@
             });
           };
           for (var i = 1; i < 5; i++) {
-            _loop_4(i);
+            _loop_2(i);
           }
           _this.editor.ui.registry.addContextToolbar('bsRow' + pos + 'ContextToolbar', {
             predicate: function (node) {
@@ -6463,13 +6447,16 @@
                         icon: subMenuIcon,
                         onAction: function () {
                           var csspropPrefix = cssprop.prefix;
-                          if (suffix.value === '') {
-                            csspropPrefix = csspropPrefix.slice(0, -1);
-                          }
                           if (!_this.$(_this.currentCol).hasClass(csspropPrefix + screen.prefix + suffix.value)) {
                             cssprop.suffix.forEach(function (sf) {
                               _this.$(_this.currentCol).removeClass(csspropPrefix + screen.prefix + sf.value);
                             });
+                          }
+                          if (suffix.value === '') {
+                            if (screen.prefix === '') {
+                              csspropPrefix = csspropPrefix.slice(0, -1);
+                            }
+                            screen.prefix = screen.prefix.slice(0, -1);
                           }
                           _this.$(_this.currentCol).toggleClass(csspropPrefix + screen.prefix + suffix.value);
                           return false;
@@ -6497,7 +6484,7 @@
           'After'
         ];
         colPos.forEach(function (pos) {
-          var _loop_5 = function (i) {
+          var _loop_3 = function (i) {
             var columnText = 'column';
             if (i > 1) {
               columnText = 'columns';
@@ -6510,7 +6497,7 @@
             });
           };
           for (var i = 1; i < 5; i++) {
-            _loop_5(i);
+            _loop_3(i);
           }
           _this.editor.ui.registry.addContextToolbar('bsCol' + pos + 'ContextToolbar', {
             predicate: function (node) {
@@ -6633,7 +6620,7 @@
         switch (type) {
         case 'col':
           var col = this.findClosestCol(this.editor.selection.getNode());
-          this.editor.selection.setCursorLocation(col);
+          this.editor.selection.setCursorLocation(col, 0);
           $htmlContent = this.$('<div></div>');
           for (var index = 0; index < nb; index++) {
             $htmlContent.append(this.htmlTemplates.col);
@@ -6650,7 +6637,7 @@
           break;
         case 'row':
           var row = this.editor.selection.getNode().closest('.row');
-          this.editor.selection.setCursorLocation(row);
+          this.editor.selection.setCursorLocation(row, 0);
           $htmlContent = this.$(this.htmlTemplates.row);
           for (var index = 0; index < nb; index++) {
             $htmlContent.append(this.htmlTemplates.col);
@@ -6728,7 +6715,7 @@
         var value;
         if (titleParts.length === 2) {
           if (titleParts[1].includes('-')) {
-            regexTitle = /([a-z-]+[a-z]+-)([a-z0-9-]+)/;
+            regexTitle = /([a-z-]+[a-z]*-)([a-z0-9-]+)/;
             match = regexTitle.exec(titleParts[1]);
           } else {
             regexTitle = /([a-z]+)/;
