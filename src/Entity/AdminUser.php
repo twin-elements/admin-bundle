@@ -62,8 +62,6 @@ class AdminUser implements UserInterface, \Serializable
     private $createdAt;
 
     /**
-     * Get id
-     *
      * @return int
      */
     public function getId()
@@ -72,8 +70,6 @@ class AdminUser implements UserInterface, \Serializable
     }
 
     /**
-     * Set username
-     *
      * @param string $username
      *
      * @return AdminUser

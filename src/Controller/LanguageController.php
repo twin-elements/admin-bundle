@@ -3,13 +3,14 @@
 namespace TwinElements\AdminBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 class LanguageController extends AbstractController
 {
-    public function renderAction(Request $request)
+    public function renderLanguages(Request $request) :Response
     {
         $languages = $this->getParameter('app_locales');
 

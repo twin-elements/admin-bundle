@@ -13,7 +13,7 @@
                 <a href="{{ path('security_logout') }}">
                     <b>{{ "logout"|translate_admin }}</b>
                 </a>
-                {{ render(controller('TwinElementsAdminBundle:Language:render')) }}
+                {{ render(controller('TwinElements\\AdminBundle\\Controller\\LanguageController::renderLanguages')) }}
             </div>
         </div>
     </div>
