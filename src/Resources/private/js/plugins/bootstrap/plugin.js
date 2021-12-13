@@ -139,6 +139,7 @@
     };
 
     var defaultConfig = {
+      bootstrapColumns: 12,
       bootstrapCss: 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css',
       editorStyleFormats: {
         textStyles: true,
@@ -5892,21 +5893,20 @@
                         items: []
                       };
                       var spacings = _this.editorStyleFormats.spacing;
-                      var tempSpacing_1 = [];
                       spacings.forEach(function (spacingTitle) {
                         var spItems = _this.findStyleFormatItems(format.title, prop.title, screenTitle, spacingTitle);
                         tempScreen_1.items.push(spItems);
-                        tempSpacing_1.push(spItems);
+                        if (_this.editorStyleFormats.responsive.length < 2 && _this.editorStyleFormats.responsive[0] === 'xs') {
+                          tempProps_1.items.push(spItems);
+                        }
                         spItems.items.forEach(function (item) {
                           if ('classes' in item) {
                             _this.addStyleFormat(item);
                           }
                         });
                       });
-                      if (_this.editorStyleFormats.responsive.length > 1) {
+                      if (_this.editorStyleFormats.responsive.length > 1 || _this.editorStyleFormats.responsive[0] !== 'xs') {
                         tempProps_1.items.push(tempScreen_1);
-                      } else {
-                        tempProps_1.items.push(tempSpacing_1);
                       }
                     }
                   });
@@ -5932,7 +5932,6 @@
             }
           }
         });
-        console.log(this.styleFormatsActive);
         this.editor.settings.style_formats = outputStyleFormats;
         var toolbarElements = [];
         for (var _f = 0, _g = Object.entries(this.elements); _f < _g.length; _f++) {
@@ -6363,65 +6362,23 @@
             scope: 'node'
           });
         });
+        var colCsssuffix = [];
+        colCsssuffix.push({
+          name: 'auto',
+          value: ''
+        });
+        for (var index = 1; index <= this.bootstrapColumns; index++) {
+          colCsssuffix.push({
+            name: index.toString() + '/' + this.bootstrapColumns.toString(),
+            value: index.toString()
+          });
+        }
         var colCssProperties = [{
             name: 'width',
             text: 'width',
             icon: 'template',
             prefix: 'col-',
-            suffix: [
-              {
-                name: 'auto',
-                value: ''
-              },
-              {
-                name: '1/12',
-                value: '1'
-              },
-              {
-                name: '2/12',
-                value: '2'
-              },
-              {
-                name: '3/12',
-                value: '3'
-              },
-              {
-                name: '4/12',
-                value: '4'
-              },
-              {
-                name: '5/12',
-                value: '5'
-              },
-              {
-                name: '6/12',
-                value: '6'
-              },
-              {
-                name: '7/12',
-                value: '7'
-              },
-              {
-                name: '8/12',
-                value: '8'
-              },
-              {
-                name: '9/12',
-                value: '9'
-              },
-              {
-                name: '10/12',
-                value: '10'
-              },
-              {
-                name: '11/12',
-                value: '11'
-              },
-              {
-                name: '12/12',
-                value: '12'
-              }
-            ]
+            suffix: colCsssuffix
           }];
         colCssProperties.forEach(function (cssprop) {
           _this.editor.ui.registry.addMenuButton(cssprop.name, {
