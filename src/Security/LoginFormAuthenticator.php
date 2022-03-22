@@ -84,6 +84,11 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
         return $this->userRepository->findOneBy(['email' => $credentials['email']]);
     }
 
+    /**
+     * @param mixed $credentials
+     * @param UserInterface $user
+     * @return bool
+     */
     public function checkCredentials($credentials, UserInterface $user)
     {
         if (is_null($user)) {
@@ -94,7 +99,7 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
             throw new AuthenticationException((new BadCredentialsException())->getMessageKey());
         }
 
-        if (!$user->isEnabled()) {
+        if (!$user->isEnable()) {
             throw new AuthenticationException((new DisabledException())->getMessageKey());
         }
 

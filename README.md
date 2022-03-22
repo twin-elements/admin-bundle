@@ -27,6 +27,14 @@ imports:
     - { resource: '@TwinElementsAdminBundle/Resources/config/security.yaml' }
 ```
 
+in `/config/packages/twin_elements_admin.yaml` add
+```
+imports:
+  - { resource: "@TwinElementsAdminBundle/config/config.yaml" }
+
+twin_elements_admin: ~
+```
+
 #### How create a new Roles?
 
 1.Create class implements `TwinElements\AdminBundle\Role\RoleGroupInterface`

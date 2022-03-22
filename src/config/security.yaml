@@ -1,13 +1,16 @@
 security:
+  enable_authenticator_manager: false
+  password_hashers:
+    Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'auto'
+
   encoders:
-    TwinElements\AdminBundle\Entity\AdminUser: bcrypt
+    TwinElements\AdminBundle\Entity\AdminUser:
+      algorithm: auto
     Symfony\Component\Security\Core\User\User: plaintext
 
   role_hierarchy:
     ROLE_EDIT:    ROLE_OBSERVER
-    ROLE_SLIDER_EDIT: ROLE_SLIDER_VIEW
-    ROLE_CARD_EDIT: ROLE_CARD_VIEW
-    ROLE_ADMIN: [ROLE_EDIT, ROLE_SLIDER_EDIT, ROLE_CARD_EDIT, ROLE_USER]
+    ROLE_ADMIN: [ROLE_EDIT,  ROLE_USER]
     ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
 
   providers:
@@ -39,4 +42,8 @@ security:
 
   access_control:
     - { path: ^/admin/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+    - { path: ^/admin/reset-admin-password$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+    - { path: ^/admin/reset-admin-password, role: IS_AUTHENTICATED_ANONYMOUSLY }
+    - { path: ^/admin/reset-admin-password/reset/.*, role: IS_AUTHENTICATED_ANONYMOUSLY }
+    - { path: ^/admin/reset-admin-password/check-email$, role: IS_AUTHENTICATED_ANONYMOUSLY }
     - { path: ^/admin/.*, roles: ROLE_USER }

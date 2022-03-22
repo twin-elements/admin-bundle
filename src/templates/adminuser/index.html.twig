@@ -11,14 +11,17 @@
     {{ block('list_ul_begin') }}
         {{ block('list_li_header_begin') }}
                 {{ block('id_header') }}
-                <div class="col">Login</div>
-                <div class="col-md-4">E-mail</div>
-                <div class="col-md-2">Data utworzenia</div>
+                <div class="col">Login / E-mail</div>
+                {{ block('list_changes_header') }}
                 {{ block('circle_header') }}
         {{ block('list_li_header_end') }}
         {% for user in adminUsers %}
             {% set id = user.id %}
-            {% set circle_active = user.enabled %}
+            {% set circle_active = user.enable %}
+            {% set createdAt = user.createdAt %}
+            {% set createdBy = user.createdBy %}
+            {% set updatedAt = user.updatedAt %}
+            {% set updatedBy = user.updatedBy %}
 
             {{ block('list_li_begin') }}
                 {{ block('id') }}
@@ -28,17 +31,13 @@
                             {% set editPath = path('user_edit', { 'id': user.id }) %}
                         {% endif %}
                         <a {% if editPath is defined %}href="{{ editPath }}"{% endif %}>
-                            {{ user.username }}
+                            {{ user.userIdentifier }}
                         </a>
+                        <span class="badge badge-primary">{{ user.email }}</span>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    {{ user.email }}
-                </div>
                 <div class="col-md-2">
-                    {% if user.createdAt %}
-                        {{ user.createdAt|date('Y-m-d H:i:s') }}
-                    {% endif %}
+                    {{ block('changes_box_in_list') }}
                 </div>
                 {{ block('circle') }}
             {{ block('list_li_end') }}

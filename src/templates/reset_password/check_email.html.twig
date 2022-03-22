@@ -1,0 +1,21 @@
+{% extends '@TwinElementsAdmin/base.html.twig' %}
+
+{% block body %}
+    <div class="container-fluid d-flex align-items-center justify-content-center" style="height:100vh;">
+        <div>
+            {% for flashError in app.flashes('reset_password_error') %}
+                <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+            {% endfor %}
+            <div id="cms-login-form" class="d-flex align-items-center justify-content-center flex-column px-12 py-14">
+                <div class="h-100 w-100">
+                    <h1>{{ "admin.forgot_password_form.password_reset_email_sent"|translate_admin }}</h1>
+                    <p>
+                        {{ "admin.forgot_password_form.email_was_sent_text"|translate_admin({"%time%": resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle')}) }}
+                        .
+                    </p>
+                    <p>{{ "admin.forgot_password_form.check_spam_folder"|translate_admin({"%link%": path('admin_forgot_password_request')})|raw }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

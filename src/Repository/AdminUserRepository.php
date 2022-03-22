@@ -7,11 +7,10 @@ use TwinElements\AdminBundle\Entity\AdminUser;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 /**
- * @method AdminUser|null find($id, $lockMode = null, $lockVersion = null)
+ * @method AdminUser|null find($id)
  * @method AdminUser|null findOneBy(array $criteria, array $orderBy = null)
  * @method AdminUser[]    findAll()
  * @method AdminUser[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
- *
  */
 class AdminUserRepository extends ServiceEntityRepository
 {

@@ -8,7 +8,7 @@
             </div>
             <div id="top-right-sidebar" class="col-auto">
                 <a href="#">
-                    {{ "you_are_logged_as"|translate_admin }} <b>{{ app.user.username|capitalize }}</b>
+                    {{ "you_are_logged_as"|translate_admin }} <b>{{ app.user.userIdentifier|capitalize }}</b>
                 </a> /
                 <a href="{{ path('security_logout') }}">
                     <b>{{ "logout"|translate_admin }}</b>
@@ -20,7 +20,7 @@
     <div id="cms-body" class="d-flex align-items-stretch">
         <div id="left-sidebar">
             <div id="welcome">
-                {{ "hello"|translate_admin }} , {{ app.user.username|capitalize }}
+                {{ "hello"|translate_admin }} , {{ app.user.userIdentifier|capitalize }}
                 {% if is_granted('ROLE_PREVIOUS_ADMIN') %}
                     <div class="alert alert-warning" style="margin-bottom: 0;">
                         You are currently switched to this user.

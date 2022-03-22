@@ -17,8 +17,8 @@ class AdminTranslatorRuntime implements RuntimeExtensionInterface
         $this->translator = $translator;
     }
 
-    public function translate(string $key, $domain = null)
+    public function translate(string $key, array $params = [], $domain = null)
     {
-        return $this->translator->translate($key, [], $domain);
+        return $this->translator->translate($key, $params, $domain);
     }
 }

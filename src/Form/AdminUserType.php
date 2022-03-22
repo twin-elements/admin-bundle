@@ -4,6 +4,8 @@ namespace TwinElements\AdminBundle\Form;
 
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
 use TwinElements\AdminBundle\Entity\AdminUser;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
@@ -43,29 +45,45 @@ class AdminUserType extends AbstractType
             ->add('username', TextType::class, [
                 'label' => $this->translator->translate('admin.user.username')
             ])
-            ->add('password', RepeatedType::class, [
+            ->add('email', EmailType::class, [
+                'label' => $this->translator->translate('admin.email'),
+                'attr' => [
+                    'class' => 'col-md-4 input'
+                ]
+            ]);
+
+        if($options['enable_password_input']){
+            $builder->add('plainPassword', RepeatedType::class, [
                 'type' => PasswordType::class,
                 'invalid_message' => $this->translator->translate('admin.not_similar_error'),
-                'options' => [
-                    'attr' => [
-                        'class' => 'col-md-4 input'
-                    ]
-                ],
-                'required' => false,
+                'required' => true,
                 'first_options' => [
                     'label' => $this->translator->translate('admin.password')
                 ],
                 'second_options' => [
                     'label' => $this->translator->translate('admin.repeat_password')
                 ],
-            ])
-            ->add('email', EmailType::class, [
-                'label' => $this->translator->translate('admin.email'),
-                'attr' => [
-                    'class' => 'col-md-4 input'
-                ]
-            ])
-            ->add('enabled', ToggleChoiceType::class)
+                'options' => [
+                    'attr' => [
+                        'autocomplete' => 'new-password'
+                    ]
+                ],
+                'mapped' => false,
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'Please enter a password',
+                    ]),
+                    new Length([
+                        'min' => 6,
+                        'minMessage' => 'Your password should be at least {{ limit }} characters',
+                        'max' => 4096,
+                    ]),
+                ],
+            ]);
+        }
+
+        $builder
+            ->add('enable', ToggleChoiceType::class)
             ->add('roles', ChoiceType::class, [
                 'label' => $this->translator->translate('admin.roles'),
                 'multiple' => true,
@@ -84,7 +102,8 @@ class AdminUserType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => AdminUser::class
+            'data_class' => AdminUser::class,
+            'enable_password_input' => false
         ));
     }
 

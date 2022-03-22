@@ -1,4 +1,5 @@
 you_are_logged_as: Jesteś zalogowany jako
+login: Zaloguj się
 logout: Wyloguj się
 hello: Witaj
 yes: Tak
@@ -64,7 +65,11 @@ admin:
   remove_element_action: Kasowanie elementu
   remove_element_action_alert: 'Naciśnięcie przycisku "skasuj" spowoduje kasację przeglądanego elementu <span class="font-weight-bold text-danger">we wszystkich wersjach językowych</span>. Jeżeli potrzebujesz ukryć element tylko na jednej wersji - deaktywuj go.'
   no_results: 'Brak elementów'
-
+  forgot_password_form: { forgot_password: 'Nie pamiętasz hasła?', please_enter_your_email: 'Prosimy o wprowadzenie adresu e-mail', email_help: 'Wprowadź adres email by uzyskać link do resetowania hasła', send_password_reset_email: 'Wyślij email', subject: 'Twoja prośba o zresetowanie hasła', password_reset_email_sent: "Email z linkiem został wysłany", email_was_sent_text: "Jeżeli twój email znajduje się w bazie danych, dostaniesz na skrzynkę link do resetu hasła. Link straci ważność za %time%", check_spam_folder: Jeżeli email nie zostal dostarczony prosimy o sprawdzenie folderu SPAM albo <a href="%link%" class="text-primary font-weight-bold">spróbować ponownie</a>, reset_your_password: Zresetuj swoje hasło, reset_password: 'Resetuj hasło', reset_email: '<h1>Hi!</h1><p>Aby zresetować hasło do konta należy kliknąć w poniższy link</p><a href="%link%">%link%</a><p>Link straci ważność za %time%.</p>' }
+  the_password_is_incorrect: Podano nieaktualne hasło
+  password_has_been_changed: Hasło zostało zmienione
+  change_password: Zmień hasło
+  actual_password: Aktualne hasło
 actions:
   edit: Edycja
   show: Pokaż
