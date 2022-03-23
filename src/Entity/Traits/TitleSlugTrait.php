@@ -12,7 +12,7 @@ trait TitleSlugTrait
      * @ORM\Column(type="string", length=155)
      * @Gedmo\Slug(fields={"title"})
      */
-    private $slug;
+    protected $slug;
 
     /**
      * @return string|null

@@ -10,7 +10,7 @@ trait ImageAlbumTrait
      * @var array|null
      * @ORM\Column(type="array", nullable=true)
      */
-    private $imageAlbum;
+    protected $imageAlbum;
 
     /**
      * @return array|null

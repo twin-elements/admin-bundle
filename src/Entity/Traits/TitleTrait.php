@@ -10,7 +10,7 @@ trait TitleTrait
      * @var string|null
      * @ORM\Column(type="string", length=255)
      */
-    private $title;
+    protected $title;
 
     /**
      * @return string|null

@@ -12,7 +12,7 @@ trait AttachmentsTrait
      * @var array|null
      * @ORM\Column(type="array", nullable=true)
      */
-    private $attachments = [];
+    protected $attachments = [];
 
     /**
      * @return array|null

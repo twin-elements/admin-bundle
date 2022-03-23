@@ -10,7 +10,7 @@ trait ImageTrait
      * @var string|null
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $image;
+    protected $image;
 
     /**
      * @return string|null

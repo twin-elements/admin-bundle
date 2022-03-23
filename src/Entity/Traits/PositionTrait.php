@@ -10,7 +10,7 @@ trait PositionTrait
      * @var int
      * @ORM\Column(type="integer")
      */
-    private $position = 0;
+    protected $position = 0;
 
     /**
      * @return int|null
