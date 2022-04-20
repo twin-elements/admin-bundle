@@ -104,7 +104,7 @@ class CreateSuperAdminCommand extends Command
             $user = new AdminUser();
             $user->setEmail($email);
             $user->setUsername($username);
-            $user->setEnabled(true);
+            $user->setEnable(true);
             $password = $this->encoder->encodePassword($user, $password);
             $user->setPassword($password);
             $user->setRoles(['ROLE_SUPER_ADMIN']);
