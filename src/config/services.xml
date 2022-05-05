@@ -47,6 +47,8 @@
             <bind key="$adminLocale">%admin_locale%</bind>
         </service>
 
+        <service id="TwinElements\Component\Message\MessageBuilderFactory" />
+
         <service id="TwinElements\Component\Flashes\Flashes" />
     </services>
 </container>

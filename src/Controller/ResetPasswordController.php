@@ -19,7 +19,7 @@ use TwinElements\AdminBundle\Entity\ResetPasswordEmail;
 use TwinElements\AdminBundle\Form\ChangePasswordFormType;
 use TwinElements\AdminBundle\Form\ResetPasswordRequestFormType;
 use TwinElements\AdminBundle\Repository\AdminUserRepository;
-use TwinElements\Component\Message\MessageBuilder;
+use TwinElements\Component\Message\MessageBuilderFactory;
 
 /**
  * @Route("/reset-admin-password")
@@ -30,21 +30,21 @@ class ResetPasswordController extends AbstractController
 
     private ResetPasswordHelperInterface $resetPasswordHelper;
     private EntityManagerInterface $entityManager;
-    private MessageBuilder $messageBuilder;
+    private MessageBuilderFactory $messageBuilderFactory;
     private TranslatorInterface $translator;
     private AdminUserRepository $userRepository;
 
     public function __construct(
         ResetPasswordHelperInterface $resetPasswordHelper,
         EntityManagerInterface       $entityManager,
-        MessageBuilder               $messageBuilder,
+        MessageBuilderFactory        $messageBuilderFactory,
         TranslatorInterface          $translator,
         AdminUserRepository          $userRepository
     )
     {
         $this->resetPasswordHelper = $resetPasswordHelper;
         $this->entityManager = $entityManager;
-        $this->messageBuilder = $messageBuilder;
+        $this->messageBuilderFactory = $messageBuilderFactory;
         $this->translator = $translator;
         $this->userRepository = $userRepository;
     }
@@ -165,9 +165,10 @@ class ResetPasswordController extends AbstractController
             return $this->redirectToRoute('admin_check_email');
         }
 
-        $this->messageBuilder->setSubject($this->translator->trans('admin.forgot_password_form.subject', [], 'messages'));
-        $this->messageBuilder->addTo($user->getEmail());
-        $email = $this->messageBuilder->getMessage((new ResetPasswordEmail($user->getEmail(), $resetToken)), '@TwinElementsAdmin/reset_password/email.html.twig');
+        $message = $this->messageBuilderFactory->createMessageBuilder();
+        $message->setSubject($this->translator->trans('admin.forgot_password_form.subject', [], 'messages'));
+        $message->addTo($user->getEmail());
+        $email = $message->getMessage((new ResetPasswordEmail($user->getEmail(), $resetToken)), '@TwinElementsAdmin/reset_password/email.html.twig');
 
         $mailer->send($email);
 
