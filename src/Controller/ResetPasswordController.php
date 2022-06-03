@@ -15,7 +15,6 @@ use SymfonyCasts\Bundle\ResetPassword\Controller\ResetPasswordControllerTrait;
 use SymfonyCasts\Bundle\ResetPassword\Exception\ResetPasswordExceptionInterface;
 use SymfonyCasts\Bundle\ResetPassword\ResetPasswordHelperInterface;
 use TwinElements\AdminBundle\Entity\AdminUser;
-use TwinElements\AdminBundle\Entity\ResetPasswordEmail;
 use TwinElements\AdminBundle\Form\ChangePasswordFormType;
 use TwinElements\AdminBundle\Form\ResetPasswordRequestFormType;
 use TwinElements\AdminBundle\Repository\AdminUserRepository;
@@ -165,12 +164,15 @@ class ResetPasswordController extends AbstractController
             return $this->redirectToRoute('admin_check_email');
         }
 
-        $message = $this->messageBuilderFactory->createMessageBuilder();
-        $message->setSubject($this->translator->trans('admin.forgot_password_form.subject', [], 'messages'));
-        $message->addTo($user->getEmail());
-        $email = $message->getMessage((new ResetPasswordEmail($user->getEmail(), $resetToken)), '@TwinElementsAdmin/reset_password/email.html.twig');
+        $message = ($this->messageBuilderFactory->createMessageBuilder()->getMessage(
+            $this->translator->trans('admin.forgot_password_form.subject', [], 'messages'),
+            [
+                'reset_token' => $resetToken
+            ],
+            '@TwinElementsAdmin/reset_password/email.html.twig'))
+            ->addTo($user->getEmail());
 
-        $mailer->send($email);
+        $mailer->send($message);
 
         $this->setTokenObjectInSession($resetToken);
 

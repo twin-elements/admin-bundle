@@ -4,18 +4,18 @@ namespace TwinElements\AdminBundle\Model;
 
 use TwinElements\AdminBundle\Helper\Breadcrumbs;
 use TwinElements\AdminBundle\Helper\CrudLoggerMessage;
-use TwinElements\AdminBundle\Service\AdminTranslator;
+use TwinElements\Component\AdminTranslator\AdminTranslator;
 use TwinElements\Component\Flashes\Flashes;
 
 trait CrudControllerTrait
 {
-    protected $breadcrumbs;
-    /**
-     * @var Flashes $flashes
-     */
-    protected $flashes;
-    protected $crudLogger;
-    protected $adminTranslator;
+    protected Breadcrumbs $breadcrumbs;
+
+    protected Flashes $flashes;
+
+    protected CrudLoggerMessage $crudLogger;
+
+    protected AdminTranslator $adminTranslator;
 
     /**
      * @param $breadcrumbs

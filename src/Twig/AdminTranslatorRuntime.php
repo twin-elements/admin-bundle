@@ -3,7 +3,7 @@
 namespace TwinElements\AdminBundle\Twig;
 
 use Twig\Extension\RuntimeExtensionInterface;
-use TwinElements\AdminBundle\Service\AdminTranslator;
+use TwinElements\Component\AdminTranslator\AdminTranslator;
 
 class AdminTranslatorRuntime implements RuntimeExtensionInterface
 {

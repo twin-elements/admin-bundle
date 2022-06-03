@@ -14,7 +14,7 @@ use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use TwinElements\AdminBundle\Role\RoleCollection;
-use TwinElements\AdminBundle\Service\AdminTranslator;
+use TwinElements\Component\AdminTranslator\AdminTranslator;
 use TwinElements\FormExtensions\Type\SaveType;
 use TwinElements\FormExtensions\Type\ToggleChoiceType;
 

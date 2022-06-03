@@ -126,15 +126,6 @@
     </div>
 {% endblock %}
 
-{% block sortable %}
-    {% if sortable is defined %}
-        <script>
-            var IS_SORTABLE_ENABLED = true;
-            var ENTITY_NAMESPACE = "{{ sortable|escape('js') }}";
-        </script>
-    {% endif %}
-{% endblock %}
-
 {% block delete_form %}
     {% if is_granted('ROLE_ADMIN') and delete_form is defined %}
         <div class="cms-section">

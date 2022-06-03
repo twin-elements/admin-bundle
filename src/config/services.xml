@@ -18,10 +18,6 @@
             <tag name="form.type"/>
         </prototype>
 
-        <service id="TwinElements\AdminBundle\Service\AdminTranslator">
-            <bind key="$adminLocale">%admin_locale%</bind>
-        </service>
-
         <service id="TwinElements\AdminBundle\Role\AdminUserRole">
             <tag name="twin_elements.role" priority="99"/>
         </service>
@@ -50,5 +46,11 @@
         <service id="TwinElements\Component\Message\MessageBuilderFactory" />
 
         <service id="TwinElements\Component\Flashes\Flashes" />
+
+        <service id="TwinElements\Component\ResponseParameterBuilder\ResponseParameterBuilder" />
+
+        <service id="TwinElements\Component\AdminTranslator\AdminTranslator">
+            <bind key="$adminLocale">%admin_locale%</bind>
+        </service>
     </services>
 </container>

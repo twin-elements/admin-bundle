@@ -14,7 +14,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use TwinElements\AdminBundle\Model\CrudControllerTrait;
 use TwinElements\AdminBundle\Repository\AdminUserRepository;
 use TwinElements\AdminBundle\Role\AdminUserRole;
-use TwinElements\AdminBundle\Service\AdminTranslator;
+use TwinElements\Component\AdminTranslator\AdminTranslator;
 use TwinElements\Component\Flashes\Flashes;
 
 /**

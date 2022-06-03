@@ -1,5 +1,5 @@
 {% extends 'email-base.html.twig' %}
 
 {% block body %}
-    {{ "admin.forgot_password_form.reset_email"|translate_admin({'%link%': url('admin_reset_password', {token: data.resetToken.token}), '%time%':data.resetToken.expirationMessageKey|trans(data.resetToken.expirationMessageData, 'ResetPasswordBundle') })|raw }}
+    {{ "admin.forgot_password_form.reset_email"|translate_admin({'%link%': url('admin_reset_password', {token: reset_token.token}), '%time%':reset_token.expirationMessageKey|trans(reset_token.expirationMessageData, 'ResetPasswordBundle') })|raw }}
 {% endblock %}

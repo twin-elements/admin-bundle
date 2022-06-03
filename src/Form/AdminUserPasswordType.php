@@ -10,7 +10,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use TwinElements\AdminBundle\Entity\AdminUser;
-use TwinElements\AdminBundle\Service\AdminTranslator;
+use TwinElements\Component\AdminTranslator\AdminTranslator;
 use TwinElements\FormExtensions\Type\SaveButtonsType;
 
 class AdminUserPasswordType extends AbstractType
