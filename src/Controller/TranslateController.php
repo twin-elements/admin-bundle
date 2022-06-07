@@ -9,6 +9,7 @@ use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use TwinElements\AdminBundle\Helper\TranslationsManager;
+use TwinElements\Component\AdminTranslator\AdminTranslator;
 use TwinElements\Component\Flashes\Flashes;
 use TwinElements\FormExtensions\Type\SaveButtonsType;
 
@@ -42,7 +43,7 @@ class TranslateController extends AbstractController
     /**
      * @Route("/dictionary/{category}/{key}", name="dictionary_key_edit")
      */
-    public function settingsEditKey($category, $key, Request $request, Breadcrumbs $breadcrumbs, Flashes $flashes)
+    public function settingsEditKey($category, $key, Request $request, Breadcrumbs $breadcrumbs, Flashes $flashes, AdminTranslator $translator)
     {
         $formBuilder = $this->createFormBuilder();
 
@@ -65,7 +66,7 @@ class TranslateController extends AbstractController
             $data = $form->getData();
             $this->translationsManager->updateKeyTranslations($key, $category, $data);
 
-            $flashes->successMessage();
+            $flashes->successMessage($translator->translate('admin.success_operation'));
 
             if ('save' === $form->getClickedButton()->getName()) {
                 return $this->redirectToRoute('dictionary_key_edit', array('category' => $category, 'key' => $key));
