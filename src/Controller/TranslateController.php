@@ -3,13 +3,13 @@
 namespace TwinElements\AdminBundle\Controller;
 
 use TwinElements\AdminBundle\Helper\Breadcrumbs;
-use TwinElements\AdminBundle\Helper\Flashes;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use TwinElements\AdminBundle\Helper\TranslationsManager;
+use TwinElements\Component\Flashes\Flashes;
 use TwinElements\FormExtensions\Type\SaveButtonsType;
 
 class TranslateController extends AbstractController
