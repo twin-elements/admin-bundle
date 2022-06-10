@@ -3,8 +3,8 @@
 namespace TwinElements\AdminBundle\Model;
 
 use TwinElements\AdminBundle\Helper\Breadcrumbs;
-use TwinElements\AdminBundle\Helper\CrudLoggerMessage;
 use TwinElements\Component\AdminTranslator\AdminTranslator;
+use TwinElements\Component\CrudLogger\CrudLoggerInterface;
 use TwinElements\Component\Flashes\Flashes;
 
 trait CrudControllerTrait
@@ -13,17 +13,14 @@ trait CrudControllerTrait
 
     protected Flashes $flashes;
 
-    protected CrudLoggerMessage $crudLogger;
+    protected CrudLoggerInterface $crudLogger;
 
     protected AdminTranslator $adminTranslator;
 
-    /**
-     * @param $breadcrumbs
-     */
     public function __construct(
         Breadcrumbs $breadcrumbs,
         Flashes $flashes,
-        CrudLoggerMessage $crudLogger,
+        CrudLoggerInterface $crudLogger,
         AdminTranslator $translator
     )
     {

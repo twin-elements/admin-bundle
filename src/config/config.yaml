@@ -1,5 +1,14 @@
 symfonycasts_reset_password:
     request_password_repository: TwinElements\AdminBundle\Repository\ResetPasswordRequestRepository
 
+monolog:
+    channels: ['crud']
+    handlers:
+        crud:
+            type: stream
+            level: info
+            path: '%kernel.logs_dir%/crud.log'
+            channels: ['crud']
+
 twin_elements_admin:
     admin_locale: '%admin_locale%'

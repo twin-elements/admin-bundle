@@ -18,6 +18,31 @@
             <tag name="form.type"/>
         </prototype>
 
+        <service id="TwinElements\AdminBundle\Helper\Breadcrumbs" autowire="true">
+            <bind key="$adminLocale">%admin_locale%</bind>
+        </service>
+
+        <service id="TwinElements\Component\Flashes\Flashes"/>
+
+        <service id="TwinElements\Component\CrudLogger\CrudLogger">
+            <argument id="security.token_storage"/>
+            <argument id="logger"/>
+            <tag name="monolog.logger" channel="crud"/>
+        </service>
+
+        <service id="TwinElements\Component\CrudLogger\CrudLoggerInterface" alias="TwinElements\Component\CrudLogger\CrudLogger"/>
+
+        <service id="TwinElements\Component\AdminTranslator\AdminTranslator">
+            <bind key="$adminLocale">%admin_locale%</bind>
+        </service>
+
+        <service id="TwinElements\AdminBundle\Model\CrudControllerTrait">
+            <argument id="TwinElements\AdminBundle\Helper\Breadcrumbs"/>
+            <argument id="TwinElements\Component\Flashes\Flashes"/>
+            <argument id="TwinElements\Component\CrudLogger\CrudLogger"/>
+            <argument id="TwinElements\Component\AdminTranslator\AdminTranslator"/>
+        </service>
+
         <service id="TwinElements\AdminBundle\Role\AdminUserRole">
             <tag name="twin_elements.role" priority="99"/>
         </service>
@@ -31,26 +56,17 @@
         </service>
 
         <service id="TwinElements\AdminBundle\Menu\AdminMenuCollector">
-            <argument type="tagged" tag="twin_elements.admin_menu" />
+            <argument type="tagged" tag="twin_elements.admin_menu"/>
         </service>
 
         <service id="TwinElements\AdminBundle\Menu\Builder" autowire="true">
-            <tag name="knp_menu.menu_builder" method="mainMenu" alias="cms_main" />
+            <tag name="knp_menu.menu_builder" method="mainMenu" alias="cms_main"/>
             <bind key="$adminLocale">%admin_locale%</bind>
         </service>
 
-        <service id="TwinElements\AdminBundle\Helper\Breadcrumbs" autowire="true">
-            <bind key="$adminLocale">%admin_locale%</bind>
-        </service>
+        <service id="TwinElements\Component\Message\MessageBuilderFactory"/>
 
-        <service id="TwinElements\Component\Message\MessageBuilderFactory" />
+        <service id="TwinElements\Component\ResponseParameterBuilder\ResponseParameterBuilder"/>
 
-        <service id="TwinElements\Component\Flashes\Flashes" />
-
-        <service id="TwinElements\Component\ResponseParameterBuilder\ResponseParameterBuilder" />
-
-        <service id="TwinElements\Component\AdminTranslator\AdminTranslator">
-            <bind key="$adminLocale">%admin_locale%</bind>
-        </service>
     </services>
 </container>

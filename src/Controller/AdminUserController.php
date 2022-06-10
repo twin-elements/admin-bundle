@@ -10,7 +10,6 @@ use TwinElements\AdminBundle\Form\AdminUserType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use TwinElements\AdminBundle\Model\CrudControllerTrait;
 use TwinElements\AdminBundle\Repository\AdminUserRepository;
 use TwinElements\AdminBundle\Role\AdminUserRole;
