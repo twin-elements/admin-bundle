@@ -10,7 +10,7 @@
         }
     ],
     "require": {
-        "php": "^7.4",
+        "php": "^7.4 || ^8.0",
         "symfony/framework-bundle": "^4.4 || ^5.4",
         "twin-elements/form-extensions": "^1.5",
         "twin-elements/flashes": "^1.0",
