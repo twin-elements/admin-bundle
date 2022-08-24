@@ -1,5 +1,4 @@
-tinymce.addI18n("fr_FR", {
-    "lgtest": "mon cul",
+const bootstrapUiI18n = {
     "Add col after": "Ajouter une colonne après",
     "Add col before": "Ajouter une colonne avant",
     "Add paragraph after": "Ajouter un paragraphe après",
@@ -52,4 +51,4 @@ tinymce.addI18n("fr_FR", {
     "Snippet": "Snippet",
     "Table": "Tableau",
     "Template": "Template"
-});
+};

@@ -11,6 +11,7 @@
     width: calc(100% + 14px);
     height: calc(100% + 14px);
     border: 1px dashed #aaa;
+    pointer-events: none;
 }
 
 .breadcrumb .tbp-active:after,
@@ -23,7 +24,8 @@
 /* Template buttons
 -------------------------------------------------- */
 
-.row, .col {
+.row,
+.col {
     position: relative;
 }
 
@@ -57,14 +59,14 @@
     pointer-events: none;
 }
 
-[class*="col"] > .context-trigger-wrapper .btn {
+[class*="col"]>.context-trigger-wrapper .btn {
     padding: .0625rem .125rem;
     font-size: .4375rem;
     line-height: .375;
     filter: saturate(25%) brightness(120%);
 }
 
-[class*="col"] > .context-trigger-wrapper button span.svg-icon {
+[class*="col"]>.context-trigger-wrapper button span.svg-icon {
     transform: scale(.75);
 }
 

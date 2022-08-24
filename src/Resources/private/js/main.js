@@ -88,27 +88,9 @@ $(document).ready(function () {
         }
     });
 
-    // $("#category-tree .open-children").on("click", function () {
-    //     var id = $(this).data("id");
-    //     $("ul#" + id).toggleClass("active");
-    // });
-    //
-    // if ("#active-tree-element") {
-    //     var parentsTree = $("#active-tree-element").parents("ul");
-    //     $.each(parentsTree, function (index, value) {
-    //         $(value).addClass("active");
-    //     });
-    // }
-
     $(".select2").select2({
         theme: "bootstrap4",
     });
-
-    // $(".images_widget_image").on("click", function () {
-    //     var radioID = $(this).attr("data-id");
-    //     var inputID = "#" + radioID;
-    //     $(inputID).prop("checked", !$(inputID).prop("checked"));
-    // });
 
     $("body").on("click", ".open-file-manager-btn", function () {
         const _self = this;

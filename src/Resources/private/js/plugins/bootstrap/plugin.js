@@ -140,7 +140,7 @@
 
     var defaultConfig = {
       bootstrapColumns: 12,
-      bootstrapCss: 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css',
+      bootstrapCss: 'https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css',
       editorStyleFormats: {
         textStyles: true,
         blockStyles: true,
@@ -6017,6 +6017,14 @@
               var nodeType = match[1];
               var prop_1 = match[2];
               var value = match[3];
+              var range = tinymce.activeEditor.selection.getRng();
+              var selectedLength = range.endOffset - range.startOffset;
+              if (selectedLength > 0) {
+                var ct = tinymce.activeEditor.selection.getContent();
+                tinymce.activeEditor.selection.setContent(tinymce.activeEditor.dom.createHTML('span', { id: 'tbp-span' }, ct));
+                tinymce.activeEditor.selection.select(tinymce.activeEditor.dom.select('#tbp-span')[0]);
+                tinymce.activeEditor.dom.setAttrib('tbp-span', 'id', '');
+              }
               var $node_1 = tinymce.activeEditor.selection.getNode();
               if (nodeType === 'block') {
                 $node_1 = _this.$($node_1).closest(_this.styleFormatConfig.blockSelector);
